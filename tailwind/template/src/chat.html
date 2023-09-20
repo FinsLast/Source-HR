@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-orange">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+	<meta name="description" content="Smarthr - Bootstrap Admin Template">
+	<meta name="keywords"
+		content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
+	<meta name="author" content="Dreamguys - Bootstrap Admin Template">
+	<meta name="robots" content="noindex, nofollow">
+	<title>Chat - HRMS admin template</title>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="css/all.min.css" />
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/line-awesome.min.css">
+	<link rel="stylesheet" href="css/custom-forms.css" />
+	<link rel="stylesheet" href="css/index.min.css" />
+
+	<link rel="stylesheet" href="../dist/tailwind-dist.css">
+</head>
+
+<body class="font-CircularStd bg-body dark:bg-swapBody" x-data="{modal:false}" @click.away="modal=false" x-cloak>
+	<!-- Main Wrapper -->
+	<div class="main-wrapper">
+
+			<!-- Header -->
+			<header class="fixed left-0 right-0 top-0 bg-gradient-to-r from-[#ff9b44] to-[#fc6075] dark:bg-gradient-to-r dark:from-[#16191c] dark:to-[#16191c] h-[60px] flex items-center border-b border-transparent dark:border-[#2e3840] shadow-header z-[9999]">
+
+				<!-- Logo -->
+				<div class="logo media-max-w-md:max-w-full max-w-[230px] w-full media-max-w-md:absolute px-5 transition-all ease-in-out duration-[0.2s]">
+					<a href="index.html">
+						<img src="images/logo.png" alt="logo" class="w-[40px] h-[40px] mx-auto"> 
+					</a>
+				</div>
+				<!-- /Logo -->
+	
+				<a href="javascript:;" class="media-max-w-md:hidden flex px-[10px]" id="toggle_btn">
+					<span class="bar-icon inline-block w-[21px]">
+						<span class="w-[21px] h-[2px] bg-white dark:bg-swapText mb-[5px] block float-left"></span>
+						<span class="w-[15px] h-[2px] bg-white dark:bg-swapText mb-[5px] block float-left"></span>
+						<span class="w-[21px] h-[2px] bg-white dark:bg-swapText block float-left"></span>
+					</span>
+				</a>
+	
+				<!-- Header Title -->
+				<div class="px-5 media-max-w-lg:hidden">
+					<h3 class="text-[20px] font-normal text-white dark:text-swapText leading-[1.2]">Dreamguy's Technologies</h3>
+				</div>
+				<!-- /Header Title -->
+		
+				<a id="mobile_btn" class="media-min-w-md:hidden px-5 w-[60px] h-[60px] leading-[60px] absolute top-0 left-0 text-white dark:text-swapText text-2xl" href="#sidebar"><i class="fa fa-bars"></i></a>
+		
+				<!-- Header Menu -->
+				<div class="ml-auto">
+					<ul class="hidden sm:flex items-center">
+	
+						<!-- Search -->
+						<li>
+							<div class="relative" x-data="{mobSearch:false}">
+								<a href="javascript:void(0);" class="media-min-w-md:hidden inline-block h-[60px] leading-[60px] text-white dark:text-swapText text-xl sm:px-[10px] md:px-[15px] responsive-search"  @click="mobSearch = ! mobSearch">
+									<i class="fa fa-search"></i>
+							   </a>						
+								<form x-show="mobSearch" action="javascript:;" class="flex items-center w-[230px] absolute left-0 mt-[10px] z-50">
+									<input class="bg-white dark:bg-swapBg w-full h-[40px] py-[10px] pl-[15px] pr-[50px] border border-[#e3e3e3] rounded-[50px] text-[#333333]  dark:text-swapText placeholder:text-swapText outline-none focus:outline-none" type="text" placeholder="Search here">
+									<button class="flex absolute right-3" type="submit">
+										<i class="fa fa-search text-[#333333]  dark:text-swapText"></i>
+									</button>
+								</form>   
+								<form action="javascript:;" class=" media-max-w-md:hidden flex items-center w-[230px] relative">
+									<input class="bg-searchbg !border-transparent focus:ring-0 w-full h-[40px] py-[10px] pl-[15px] pr-[50px] rounded-[50px] text-white dark:text-swapText placeholder:text-whiteOpacity outline-none focus:outline-none" type="text" placeholder="Search here">
+									<button class="flex absolute right-3" type="submit">
+										<i class="fa fa-search text-white dark:text-swapText"></i>
+									</button>
+								</form>   						                     
+							</div>
+						</li>
+						<!-- /Search -->
+	
+						<!-- Flag -->
+						<li class="relative" x-data="{transLang:false}" @click.away="transLang=false">
+							<a href="javascript:;" class="sm:px-[10px] md:px-[15px] text-white dark:text-swapText text-[15px] flex items-center h-[60px] hover:bg-blackOpacity focus:bg-blackOpacity after:media-max-w-md:hidden after:content-['\f107'] after:font-FontAwesome after:pl-[5px] after:text-[20px] after:transition-all after:ease-in-out after:duration-[0.2s]" :class="{'after:rotate-180 after:pl-[0px] after:pr-[5px]':transLang === true, 'after:rotate-0': transLang === false}" @click="transLang = ! transLang"><img src="images/flags/us.png" class="w-5 h-5 media-max-w-md:mr-0 mr-2" alt=""><span class="media-max-w-md:hidden leading-[60px]">English</span></a>
+							<div x-show="transLang" class="py-2 bg-white absolute left-0 right-0 border border-dropdownBorder shadow rounded-sm min-w-[120px] max-h-[150px] overflow-y-auto z-50"> 
+								<a href="javascript:;" @click.prevent="transLang=false" class="px-3 py-1 flex items-center text-[13px] hover:text-dropdownColor hover:bg-dropdownhoverColor"><img src="images/flags/us.png" class="w-4 h-4 mr-2" alt="">English</a>
+								<a href="javascript:;" @click.prevent="transLang=false" class="px-3 py-1 flex items-center text-[13px] hover:text-dropdownColor hover:bg-dropdownhoverColor"><img src="images/flags/fr.png" class="w-4 h-4 mr-2" alt="">French</a>
+								<a href="javascript:;" @click.prevent="transLang=false" class="px-3 py-1 flex items-center text-[13px] hover:text-dropdownColor hover:bg-dropdownhoverColor"><img src="images/flags/es.png" class="w-4 h-4 mr-2" alt="">Spanish</a>
+								<a href="javascript:;" @click.prevent="transLang=false" class="px-3 py-1 flex items-center text-[13px] hover:text-dropdownColor hover:bg-dropdownhoverColor"><img src="images/flags/de.png" class="w-4 h-4 mr-2" alt="">German</a>
+							</div>
+						</li>
+											<!-- /Flag -->
+	
+						<!-- Light & Dark Mode -->
+						<a id="theme-toggle" href="javascript:;" class="text-gray-500 mx-1 bg-btnControls ring-0 outline-offset-0 focus:ring-0 dark:text-gray-400 border-0 appearance-none focus:outline-none rounded-lg text-sm p-2.5">
+							<svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+							<svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+						</a>				
+						<!-- /Light & Dark Mode	 -->
+	
+	
+						<!-- Notifications -->
+						<li class="relative" x-data="{notify:false}" @click.away="notify=false">
+							<a href="javascript:;" class="sm:px-[10px] md:px-[15px] text-white dark:text-swapText flex items-center h-[60px] hover:bg-blackOpacity focus:bg-blackOpacity" @click="notify = ! notify"><i class="fa fa-bell-o relative text-xl"></i><span class="bg-countBubble dark:bg-[#fc6075] w-5 h-5 flex items-center text-xs justify-center font-semibold text-white rounded-full absolute top-[6px] right-[3px]">3</span></a>
+							<div x-show="notify" class="bg-white absolute right-0 border border-dropdownBorder shadow rounded-sm min-w-[10rem] z-50">
+									<div class="h-8 leading-8 px-3 flex items-center justify-between border-b border-dropdownBorderBtm">
+										<span class="text-sm block text-[#333333]">Notifications</span>
+										<a href="javascript:void(0)" class="text-[#f83f37] text-[11px] uppercase"> Clear All </a>
+									</div>
+									<div class="w-[350px] h-[290px] overflow-y-auto">
+										<ul>
+											<li class="border-b border-dropdownBorderBtm">
+												<a href="activities.html" class="block p-3 rounded-sm">
+													<div class="flex">
+														<span class="w-[38px] shrink-0 mr-[10px]">
+															<img alt="" src="images/profiles/avatar-02.jpg" class="w-full rounded-full">
+														</span>
+														<div class="grow">
+															<p class="text-notiDetails text-[13px]"><span class="text-notiTitle">John Doe</span> added new task <span class="text-notiTitle">Patient appointment booking</span></p>
+															<p class="text-notiTime text-xs"><span>4 mins ago</span></p>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li class="border-b border-dropdownBorderBtm">
+												<a href="activities.html" class="block p-3 rounded-sm">
+													<div class="flex">
+														<span class="w-[38px] shrink-0 mr-[10px]">
+															<img alt="" src="images/profiles/avatar-03.jpg" class="w-full rounded-full">
+														</span>
+														<div class="grow">
+															<p class="text-notiDetails text-[13px]"><span class="text-notiTitle">Tarah Shropshire</span> changed the task name <span class="text-notiTitle">Appointment booking with payment gateway</span></p>
+															<p class="text-notiTime text-xs"><span>6 mins ago</span></p>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li class="border-b border-dropdownBorderBtm">
+												<a href="activities.html" class="block p-3 rounded-sm">
+													<div class="flex">
+														<span class="w-[38px] shrink-0 mr-[10px]">
+															<img alt="" src="images/profiles/avatar-06.jpg" class="w-full rounded-full">
+														</span>
+														<div class="grow">
+															<p class="text-notiDetails text-[13px]"><span class="text-notiTitle">Misty Tison</span> added <span class="text-notiTitle">Domenic Houston</span> and <span class="noti-title">Claire Mapes</span> to project <span class="noti-title">Doctor available module</span></p>
+															<p class="text-notiTime text-xs"><span>8 mins ago</span></p>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li class="border-b border-dropdownBorderBtm">
+												<a href="activities.html" class="block p-3 rounded-sm">
+													<div class="flex">
+														<span class="w-[38px] shrink-0 mr-[10px]">
+															<img alt="" src="images/profiles/avatar-17.jpg" class="w-full rounded-full">
+														</span>
+														<div class="media-body flex-grow-1">
+															<p class="text-notiDetails text-[13px]"><span class="text-notiTitle">Rolland Webber</span> completed task <span class="text-notiTitle">Patient and Doctor video conferencing</span></p>
+															<p class="text-notiTime text-xs"><span>12 mins ago</span></p>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li>
+												<a href="activities.html" class="block p-3 rounded-sm">
+													<div class="flex">
+														<span class="w-[38px] shrink-0 mr-[10px]">
+															<img alt="" src="images/profiles/avatar-13.jpg" class="w-full rounded-full">
+														</span>
+														<div class="grow">
+															<p class="text-notiDetails text-[13px]"><span class="text-notiTitle">Bernardo Galaviz</span> added new task <span class="text-notiTitle">Private chat module</span></p>
+															<p class="text-notiTime text-xs"><span>2 days ago</span></p>
+														</div>
+													</div>
+												</a>
+											</li>
+										</ul>
+									</div>
+									<div class="border border-dropdownBorderBtm h-8 leading-8 px-3 flex items-center justify-center">
+										<a href="activities.html" class="text-xs block text-[#333333]">View all Notifications</a>
+									</div>
+							</div>
+						</li>
+						<!-- /Notifications -->
+	
+						<!-- Message Notifications -->
+						<li class="relative" x-data="{notify:false}" @click.away="notify=false">
+							<a href="javascript:;" class="sm:px-[10px] md:px-[15px] text-white dark:text-swapText flex items-center h-[60px] hover:bg-blackOpacity focus:bg-blackOpacity" @click="notify = ! notify"><i class="fa fa-comment-o relative text-xl"></i><span class="bg-countBubble dark:bg-[#fc6075] w-5 h-5 flex items-center text-xs justify-center font-semibold text-white rounded-full absolute top-[6px] right-[3px]">3</span></a>
+							<div x-show="notify" class="bg-white absolute right-0 border border-dropdownBorder shadow rounded-sm min-w-[10rem] z-50">
+								<div class="h-8 leading-8 px-3 flex items-center justify-between border-b border-dropdownBorderBtm">
+									<span class="text-sm block text-[#333333]">Chats</span>
+									<a href="javascript:void(0)" class="text-[#f83f37] text-[11px] uppercase"> Clear All </a>
+								</div>
+								<div class="w-[350px] h-[290px] overflow-y-auto">
+										<ul> 
+											<li class="border-b border-dropdownBorderBtm">
+												<a href="chat.html" class="block p-3 rounded-sm">
+													<div class="relative">
+														<div class="absolute w-[48px] h-[48px]">
+															<span class="inline-block w-[38px] h-[38px] mr-[10px]">
+																<img alt="" src="images/profiles/avatar-09.jpg" class="w-full rounded-full">
+															</span>
+															</div>
+														<div class="pl-[50px] pr-0 py-0">
+															<span class="text-[13px] text-[#333333] font-medium w-[175px] block float-left max-w-full overflow-hidden text-ellipsis whitespace-nowrap">Richard Miles </span>
+															<span class="text-[#666666] text-[11px] float-right">12:28 AM</span>
+															<div class="clear-both"></div>
+															<span class="text-[13px] text-[#333333]  block max-w-full overflow-hidden text-ellipsis whitespace-nowrap">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li class="border-b border-dropdownBorderBtm">
+												<a href="chat.html" class="block p-3 rounded-sm">
+													<div class="relative">
+														<div class="absolute w-[48px] h-[48px]">
+															<span class="inline-block w-[38px] h-[38px] mr-[10px]">
+																<img alt="" src="images/profiles/avatar-02.jpg" class="w-full rounded-full">
+															</span>
+														</div>
+														<div class="pl-[50px] pr-0 py-0">
+															<span class="text-[13px] text-[#333333] font-medium w-[175px] block float-left max-w-full overflow-hidden text-ellipsis whitespace-nowrap">John Doe</span>
+															<span class="text-[#666666] text-[11px] float-right">6 Mar</span>
+															<div class="clear-both"></div>
+															<span class="text-[13px] text-[#333333] block max-w-full overflow-hidden text-ellipsis whitespace-nowrap">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li class="border-b border-dropdownBorderBtm">
+												<a href="chat.html" class="block p-3 rounded-sm">
+													<div class="relative">
+														<div class="absolute w-[48px] h-[48px]">
+															<span class="inline-block w-[38px] h-[38px] mr-[10px]">
+																<img alt="" src="images/profiles/avatar-03.jpg" class="w-full rounded-full">
+															</span>
+														</div>
+														<div class="pl-[50px] pr-0 py-0">
+															<span class="text-[13px] text-[#333333] font-medium w-[175px] block float-left max-w-full overflow-hidden text-ellipsis whitespace-nowrap">Tarah Shropshire </span>
+															<span class="text-[#666666] text-[11px] float-right">5 Mar</span>
+															<div class="clear-both"></div>
+															<span class="text-[13px] text-[#333333] block max-w-full overflow-hidden text-ellipsis whitespace-nowrap">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li class="border-b border-dropdownBorderBtm">
+												<a href="chat.html" class="block p-3 rounded-sm">
+													<div class="relative">
+														<div class="absolute w-[48px] h-[48px]">
+															<span class="inline-block w-[38px] h-[38px] mr-[10px]">
+																<img alt="" src="images/profiles/avatar-05.jpg" class="w-full rounded-full">
+															</span>
+														</div>
+														<div class="pl-[50px] pr-0 py-0">
+															<span class="text-[13px] text-[#333333] font-medium w-[175px] block float-left max-w-full overflow-hidden text-ellipsis whitespace-nowrap">Mike Litorus</span>
+															<span class="text-[#666666] text-[11px] float-right">3 Mar</span>
+															<div class="clear-both"></div>
+															<span class="text-[13px] text-[#333333] block max-w-full overflow-hidden text-ellipsis whitespace-nowrap">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li class="border-b border-dropdownBorderBtm">
+												<a href="chat.html" class="block p-3 rounded-sm">
+													<div class="relative">
+														<div class="absolute w-[48px] h-[48px]">
+															<span class="inline-block w-[38px] h-[38px] mr-[10px]">
+																<img alt="" src="images/profiles/avatar-08.jpg" class="w-full rounded-full">
+															</span>
+														</div>
+														<div class="pl-[50px] pr-0 py-0">
+															<span class="text-[13px] text-[#333333] font-medium w-[175px] block float-left max-w-full overflow-hidden text-ellipsis whitespace-nowrap">Catherine Manseau </span>
+															<span class="text-[#666666] text-[11px] float-right">27 Feb</span>
+															<div class="clear-both"></div>
+															<span class="text-[13px] text-[#333333] block max-w-full overflow-hidden text-ellipsis whitespace-nowrap">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+														</div>
+													</div>
+												</a>
+											</li>
+										</ul>	 
+								</div>
+								<div class="border border-dropdownBorderBtm h-8 leading-8 px-3 flex items-center justify-center">
+									<a href="chat.html" class="text-xs block text-[#333333] ">View all Messages</a>
+								</div>
+						</div>
+						</li>
+						<!-- /Message Notifications -->
+	
+						<li class="relative" x-data="{profile:false}" @click.away="profile=false">
+							<a href="javascript:;" class="sm:px-[10px] md:px-[15px] text-white dark:text-swapText flex items-center h-[60px] hover:bg-blackOpacity focus:bg-blackOpacity after:media-max-w-md:hidden after:content-['\f107'] after:font-FontAwesome after:pl-[5px] after:text-[20px] after:transition-all after:ease-in-out after:duration-[0.2s]" :class="{'after:rotate-180 after:pl-[0px] after:pr-[5px]':profile === true, 'after:rotate-0': profile === false}" @click="profile = ! profile">
+								<div class="inline-block relative leading-[60px] h-[60px] media-min-w-md:mr-2"><img src="images/profiles/avatar-21.jpg" class="inline-block w-[30px] h-[30px] rounded-full" alt=""><span class="w-[10px] h-[10px] bg-statusOnline rounded-full border-2 border-white absolute right-0 bottom-3"></span></div><span class="media-max-w-md:hidden text-[15px] leading-[60px]">Admin</span></a>
+							<div x-show="profile" class="py-2 bg-white absolute right-0 border border-dropdownBorder shadow rounded-sm min-w-[130px] max-h-[150px] overflow-y-auto z-50"> 
+								<a href="profile.html" class="px-3 py-1 flex items-center text-[13px] capitalize hover:text-dropdownColor hover:bg-dropdownhoverColor">my profile</a>
+								<a href="settings.html" class="px-3 py-1 flex items-center text-[13px] capitalize hover:text-dropdownColor hover:bg-dropdownhoverColor">settings</a>
+								<a href="index.html" class="px-3 py-1 flex items-center text-[13px] capitalize hover:text-dropdownColor hover:bg-dropdownhoverColor">logout</a>
+							</div>
+						</li>
+					</ul>
+					<!-- /Header Menu -->
+		
+						<!-- Mobile Menu -->
+						<div class="block sm:hidden relative" x-data="{profile:false}" @click.away="profile=false">
+							<a href="javascript:;" class="text-white flex items-center h-[60px] px-5" @click="profile = ! profile"><i class="fa fa-ellipsis-v text-2xl"></i></a>
+							<div class="py-2 bg-white absolute right-0 media-max-w-xs:right-[18px] border border-dropdownBorder shadow rounded-sm min-w-[120px] max-h-[150px] overflow-y-auto z-50" x-show="profile">
+								<a class="px-3 py-1 flex items-center text-[13px] capitalize hover:text-dropdownColor hover:bg-dropdownhoverColor" href="profile.html">My Profile</a>
+								<a class="px-3 py-1 flex items-center text-[13px] capitalize hover:text-dropdownColor hover:bg-dropdownhoverColor" href="settings.html">Settings</a>
+								<a class="px-3 py-1 flex items-center text-[13px] capitalize hover:text-dropdownColor hover:bg-dropdownhoverColor" href="index.html">Logout</a>
+							</div>
+						</div>
+						<!-- /Mobile Menu -->	
+	
+				</div>
+				
+				
+			</header>
+		<!-- /Header -->
+
+		<!-- Sidebar -->
+		<div class="sidebar bg-sidebar dark:bg-swapBg media-max-w-md:-ml-[225px] media-max-w-md:w-[225px] transition-all ease-in-out duration-[0.2s] w-[230px] fixed top-[60px] bottom-0 left-0 py-[10px] z-[401]"
+			id="sidebar">
+			<div class="h-full pb-5 scrollbar-thin scrollbar-thumb-scrollbar scroll">
+				<div id="sidebar-menu" class="sidebar-menu">
+					<ul>
+						<li>
+							<a href="admin-dashboard.html"><i class="la la-home"></i> <span>Back to Home</span></a>
+						</li>
+						<li class="menu-title"><span>Chat Groups</span> <a href="javascript:;"
+								class="inline-block ml-auto !p-0 text-primary"><i
+									class="fa fa-plus !text-base text-right text-primary"></i></a></li>
+						<li>
+							<a href="chat.html">
+								<span class="inline-block whitespace-nowrap w-6 !ml-0 mr-[10px]">
+									<img class="w-full rounded-full" alt="" src="images/user.jpg">
+								</span>
+								<span class="whitespace-nowrap !ml-0">#General</span>
+							</a>
+						</li>
+						<li>
+							<a href="chat.html">
+								<span class="inline-block whitespace-nowrap !w-6 !ml-0 mr-[10px]">
+									<img class="!w-6 rounded-full" alt="" src="images/user.jpg">
+								</span>
+								<span class="!whitespace-nowrap !ml-0 overflow-ellipsis overflow-hidden ">#Video
+									Survey</span>
+							</a>
+						</li>
+						<li>
+							<a href="chat.html">
+								<span class="inline-block whitespace-nowrap w-6 !ml-0 mr-[10px]">
+									<img class="w-full rounded-full" alt="" src="images/user.jpg">
+								</span>
+								<span class="whitespace-nowrap !ml-0">#500rs</span>
+							</a>
+						</li>
+						<li>
+							<a href="chat.html">
+								<span class="inline-block whitespace-nowrap w-6 !ml-0 mr-[10px]">
+									<img class="w-full rounded-full" alt="" src="images/user.jpg">
+								</span>
+								<span class="whitespace-nowrap !ml-0">#warehouse</span>
+							</a>
+						</li>
+						<li class="menu-title">Direct Chats <a href="javascript:;"
+								class="inline-block ml-auto !p-0 text-primary"><i
+									class="fa fa-plus !text-base text-right text-primary"></i></a></li>
+						<li>
+							<a href="chat.html">
+								<span class="inline-block whitespace-nowrap w-6 !ml-0 mr-[10px] relative">
+									<img class="w-full rounded-full" alt="" src="images/profiles/avatar-02.jpg"><span
+										class="w-[10px] h-[10px] bg-statusOnline rounded-full border-2 border-white absolute -right-[3px] bottom-0 z-50"></span>
+								</span>
+								<span class="whitespace-nowrap !ml-0">John Doe</span> <span
+									class="text-[.75em] font-bold leading-none !ml-auto inline-block whitespace-nowrap text-white rounded-full px-[0.65em] py-[0.35em] bg-danger">1</span>
+							</a>
+						</li>
+						<li>
+							<a href="chat.html">
+								<span class="inline-block whitespace-nowrap w-6 !ml-0 mr-[10px] relative">
+									<img class="w-full rounded-full" alt="" src="images/profiles/avatar-09.jpg"><span
+										class="w-[10px] h-[10px] bg-danger rounded-full border-2 border-white absolute -right-[3px] bottom-0 z-50"></span>
+								</span>
+								<span class="whitespace-nowrap !ml-0">Richard Miles</span> <span
+									class="text-[.75em] font-bold leading-none !ml-auto inline-block whitespace-nowrap text-white rounded-full px-[0.65em] py-[0.35em] bg-danger">7</span>
+							</a>
+						</li>
+						<li>
+							<a href="chat.html">
+								<span class="inline-block whitespace-nowrap w-6 !ml-0 mr-[10px] relative">
+									<img class="w-full rounded-full" alt="" src="images/profiles/avatar-10.jpg"><span
+										class="w-[10px] h-[10px] bg-statusOnline rounded-full border-2 border-white absolute -right-[3px] bottom-0 z-50"></span>
+								</span>
+								<span class="whitespace-nowrap !ml-0">John Smith</span>
+							</a>
+						</li>
+						<li class="active">
+							<a href="chat.html">
+								<span class="inline-block whitespace-nowrap w-6 !ml-0 mr-[10px] relative">
+									<img class="w-full rounded-full" alt="" src="images/profiles/avatar-05.jpg"><span
+										class="w-[10px] h-[10px] bg-statusOnline rounded-full border-2 border-white absolute -right-[3px] bottom-0 z-50"></span>
+								</span>
+								<span class="whitespace-nowrap !ml-0">Mike Litorus</span> <span
+									class="text-[.75em] font-bold leading-none !ml-auto inline-block whitespace-nowrap text-white rounded-full px-[0.65em] py-[0.35em] bg-danger">2</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- /Sidebar -->
+
+		<!-- Page Wrapper -->
+		<div class="page-wrapper flex-1 relative right-0 pt-[60px] media-min-w-md:ml-[230px]">
+			<div class="absolute top-0 bottom-0 left-0 right-0 pt-[inherit] pb-[inherit]">
+				<div class="table table-fixed w-full border-l-0 border border-[#e0e3e4] dark:border-[#2e3840] h-full">
+					<div
+						class="table-cell static w-full media-min-w-md:w-3/4 media-max-w-lg:mr-0 mr-[300px] transition-all ease-in-out duration-[0.2s]">
+						<div class="bg-[#f7f7f7] dark:bg-swapBody table table-fixed w-full h-full">
+							<div
+								class="bg-white dark:bg-swapBg flex flex-wrap items-center border-0 border-b border-[#e0e3e4] dark:border-[#2e3840] justify-between px-[15px] py-[10px]">
+								<div class="media-max-w-xs:mb-[5px] flex mr-auto">
+									<div class="relative">
+										<a class="relative block w-[38px] h-[38px] mr-[10px]" href="profile.html"
+											title="Mike Litorus">
+											<img src="images/profiles/avatar-05.jpg" alt="" class="w-full rounded-full">
+											<span
+												class="w-[10px] h-[10px] bg-statusOnline rounded-full border-2 border-white absolute right-0 bottom-0"></span>
+										</a>
+									</div>
+									<div>
+										<a href="profile.html" class="text-[#555555] dark:text-swapText uppercase"><span>Mike
+												Litorus</span>
+											<i class="text-primary text-xs lowercase">Typing...</i>
+										</a>
+										<span class="text-[#666666] block text-xs">Last seen today at 7:50 AM</span>
+									</div>
+								</div>
+								<div class="hidden sm:flex">
+									<form class="w-full relative">
+										<input type="text"
+											class="relative flex-1 px-2 py-1 placeholder:text-[0.875rem] bg-[#f7f7f7] dark:bg-swapBg border border-[#ced4da] dark:border-[#2e3840] h-11 rounded-[50rem] w-full"
+											placeholder="Search">
+										<button class="flex items-center absolute top-0 bottom-0 right-2 dark:text-[#212529]" type="submit">
+											<i class="fa fa-search"></i>
+										</button>
+									</form>
+								</div>
+								<ul class="flex items-center">
+									<li>
+										<span class="relative text-[#333333] inline-block text-xl"><a
+												class="media-min-w-md:hidden text-[#bbbbbb] text-[26px] ml-[15px]"
+												id="task_chat" href="#task_window"><i class="fa fa-user"></i></a></span>
+									</li>
+									<li>
+										<span class="relative text-[#333333] inline-block text-xl"><a
+												href="voice-call.html" class="text-[#bbbbbb] text-[26px] ml-[15px]"><i
+													class="fa fa-phone"></i></a></span>
+									</li>
+									<li>
+										<span class="relative text-[#333333] inline-block text-xl"><a
+												href="voice-call.html" class="text-[#bbbbbb] text-[26px] ml-[15px]"><i
+													class="fa fa-video-camera"></i></a></span>
+									</li>
+									<li class="relative" x-data="{settings:false}">
+										<span class="relative text-[#333333] inline-block text-xl">
+											<a href="javascript:void(0)" class="text-[#bbbbbb] text-[26px] ml-[15px]"
+												@click="settings = ! settings"><i class="fa fa-cog"></i></a>
+										</span>
+										<div class="absolute py-2 right-0 border rounded-[3px] bg-white min-w-[10rem] z-50"
+											x-show="settings">
+											<a class="block clear-both w-full text-left text-[13px] whitespace-nowrap px-[10px] py-[5px] hover:bg-[#e9ecef]"
+												href="javascript:;" @click.prevent="settings=false">Delete
+												Conversations</a>
+											<a class="block clear-both w-full text-left text-[13px] whitespace-nowrap px-[10px] py-[5px] hover:bg-[#e9ecef]"
+												href="javascript:;" @click.prevent="settings=false">Settings</a>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="table-row h-full">
+								<div class="relative w-full h-full">
+									<div class="absolute inset-0 overflow-auto">
+										<div class="px-[15px] py-[30px]">
+											<div>
+												<div
+													class="media-max-w-xs:pl-0 media-max-w-xs:pr-0 pl-12 pr-[10px] block overflow-hidden">
+													<div class="float-left block w-full mb-[10px] group">
+														<div
+															class="float-right bg-chatBubble dark:bg-swapBg media-max-w-xs:max-w-[90%] border border-select dark:border-[#2e3840] rounded-[20px] text-[#727272] max-w-[60%] px-[15px] py-2 block relative">
+															<p>Hello. What can I do for you?</p>
+															<span
+																class="block text-xs text-right text-chatTimestamp">8:30
+																am</span>
+														</div>
+														<div class="float-right hidden group-hover:block">
+															<ul class="mx-[15px] mt-[15px] inline-block">
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"
+																		title="Share"><i
+																			class="fa fa-share-alt"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-pencil"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-trash-o"></i></a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div
+												class="border-b border-tableStripe dark:border-[#2e3840] h-3 mt-[7px] mb-[20px] relative text-center">
+												<span class="bg-body dark:bg-swapBody text-[#727272] dark:text-primary text-xs px-[11px]">October 8th,
+													2021</span>
+											</div>
+											<div>
+												<div class="float-left">
+													<a href="profile.html"
+														class="block w-[30px] h-[30px] leading-[30px] mr-[10px]">
+														<img alt="" src="images/profiles/avatar-05.jpg"
+															class="w-full rounded-full">
+													</a>
+												</div>
+												<div
+													class="ml-[30px] mr-0 media-max-w-xs:pl-0 media-max-w-xs:pr-0 pr-5 mt-[10px] block overflow-hidden">
+													<div class="block w-full float-left mb-[10px] group">
+														<div
+															class="bg-white dark:bg-transparent border border-tableStripe dark:border-transparent media-max-w-xs:max-w-[90%] rounded-[20px] rounded-bl-sm px-[15px] py-2 text-[#666666] float-left relative max-w-[60%]">
+															<p class="text-[#666666]">I'm just looking around.</p>
+															<p class="text-[#666666]">Will you tell me something about
+																yourself? </p>
+															<span class="text-[#a9a9a9] text-xs">8:35 am</span>
+														</div>
+														<div class="hidden group-hover:block">
+															<ul class="mx-[15px] mt-[15px] inline-block">
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"
+																		title="Share"><i
+																			class="fa fa-share-alt"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-pencil"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-trash-o"></i></a></li>
+															</ul>
+														</div>
+													</div>
+													<div class="block w-full float-left mb-[10px] group">
+														<div
+															class="bg-white dark:bg-transparent border border-tableStripe dark:border-transparent media-max-w-xs:max-w-[90%] rounded-[20px] rounded-tl-sm px-[15px] py-2 text-[#666666] float-left relative max-w-[60%]">
+															<p class="text-[#666666]">Are you there? That time!</p>
+															<span class="text-[#a9a9a9] text-xs">8:40 am</span>
+														</div>
+														<div class="hidden group-hover:block">
+															<ul class="mx-[15px] mt-[15px] inline-block">
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"
+																		title="Share"><i
+																			class="fa fa-share-alt"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-pencil"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-trash-o"></i></a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div>
+												<div
+													class="media-max-w-xs:pl-0 media-max-w-xs:pr-0 pl-12 pr-[10px] block overflow-hidden">
+													<div class="float-left block w-full mb-[10px] group">
+														<div
+															class="float-right bg-chatBubble dark:bg-swapBg media-max-w-xs:max-w-[90%] border border-select dark:border-[#2e3840] rounded-[20px] rounded-br-none text-[#727272] max-w-[60%] px-[15px] py-2 block relative">
+															<p>Where?</p>
+															<span
+																class="block text-xs text-right text-chatTimestamp">8:35
+																am</span>
+														</div>
+														<div class="float-right hidden group-hover:block">
+															<ul class="mx-[15px] mt-[15px] inline-block">
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"
+																		title="Share"><i
+																			class="fa fa-share-alt"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-pencil"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-trash-o"></i></a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+												<div
+													class="media-max-w-xs:pl-0 media-max-w-xs:pr-0 pl-12 pr-[10px] block overflow-hidden">
+													<div class="float-left block w-full mb-[10px] group">
+														<div
+															class="float-right bg-chatBubble dark:bg-swapBg media-max-w-xs:max-w-[90%] border border-select dark:border-[#2e3840] rounded-[20px] rounded-tr-none text-[#727272] max-w-[60%] px-[15px] py-2 block relative">
+															<p>OK, my name is Limingqiang. I like singing, playing
+																basketballand so on.</p>
+															<span
+																class="block text-xs text-right text-chatTimestamp">8:42
+																am</span>
+														</div>
+														<div class="float-right hidden group-hover:block">
+															<ul class="mx-[15px] mt-[15px] inline-block">
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"
+																		title="Share"><i
+																			class="fa fa-share-alt"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-pencil"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-trash-o"></i></a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div>
+												<div class="float-left">
+													<a href="profile.html"
+														class="block w-[30px] h-[30px] leading-[30px] mr-[10px]">
+														<img alt="" src="images/profiles/avatar-05.jpg"
+															class="w-full rounded-full">
+													</a>
+												</div>
+												<div
+													class="ml-[30px] mr-0 media-max-w-xs:pl-0 media-max-w-xs:pr-0 pr-5 mt-[10px] block overflow-hidden">
+													<div class="block w-full float-left mb-[10px] group">
+														<div
+															class="bg-white dark:bg-transparent border border-tableStripe dark:border-transparent media-max-w-xs:max-w-[90%] rounded-[20px] rounded-bl-sm px-[15px] py-2 text-[#666666] float-left relative max-w-[60%]">
+															<p class="text-[#666666]">You wait for notice.</p>
+															<span class="text-[#a9a9a9] text-xs">8:30 am</span>
+														</div>
+														<div class="hidden group-hover:block">
+															<ul class="mx-[15px] mt-[15px] inline-block">
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"
+																		title="Share"><i
+																			class="fa fa-share-alt"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-pencil"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-trash-o"></i></a></li>
+															</ul>
+														</div>
+													</div>
+													<div class="block w-full float-left mb-[10px] group">
+														<div
+															class="bg-white dark:bg-transparent border border-tableStripe dark:border-transparent media-max-w-xs:max-w-[90%] rounded-[20px] rounded-tl-sm rounded-bl-sm px-[15px] py-2 text-[#666666] float-left relative max-w-[60%]">
+															<p class="text-[#666666]">Consectetuorem ipsum dolor sit?
+															</p>
+															<span class="text-[#a9a9a9] text-xs">8:50 am</span>
+														</div>
+														<div class="hidden group-hover:block">
+															<ul class="mx-[15px] mt-[15px] inline-block">
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"
+																		title="Share"><i
+																			class="fa fa-share-alt"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-pencil"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-trash-o"></i></a></li>
+															</ul>
+														</div>
+													</div>
+													<div class="block w-full float-left mb-[10px] group">
+														<div
+															class="bg-white dark:bg-transparent border border-tableStripe dark:border-transparent media-max-w-xs:max-w-[90%] rounded-[20px] rounded-tl-sm rounded-bl-sm px-[15px] py-2 text-[#666666] float-left relative max-w-[60%]">
+															<p class="text-[#666666]">OK?</p>
+															<span class="text-[#a9a9a9] text-xs">8:55 am</span>
+														</div>
+														<div class="hidden group-hover:block">
+															<ul class="mx-[15px] mt-[15px] inline-block">
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"
+																		title="Share"><i
+																			class="fa fa-share-alt"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-pencil"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-trash-o"></i></a></li>
+															</ul>
+														</div>
+													</div>
+													<div class="block w-full float-left mb-[10px] group">
+														<div
+															class="bg-white dark:bg-transparent border border-tableStripe dark:border-transparent media-max-w-xs:max-w-[90%] rounded-[20px] rounded-tl-sm rounded-bl-sm px-[15px] py-2 text-[#666666] float-left relative max-w-[60%]">
+															<p class="text-[#666666] mb-4">Uploaded 3 Images</p>
+															<div
+																class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-2 gap-3 mb-3">
+																<a href="javascript:;" class="relative rounded-[4px]">
+																	<img alt="" src="images/placeholder.jpg"
+																		class="rounded-[4px] inline-block h-auto max-w-full w-[182px]">
+																	<div
+																		class="bg-chatPlaceholder rounded-[4px] text-white flex flex-col justify-end w-full h-full absolute top-0 left-0 p-[13px]">
+																		<div class="text-xs font-bold leading-4">
+																			placeholder.jpg</div>
+																		<div class="text-[11px]">842 KB</div>
+																	</div>
+																</a>
+																<a href="javascript:;" class="relative rounded-[4px]">
+																	<img alt="" src="images/placeholder.jpg"
+																		class="rounded-[4px] inline-block h-auto max-w-full w-[182px]">
+																	<div
+																		class="bg-chatPlaceholder rounded-[4px] text-white flex flex-col justify-end w-full h-full absolute top-0 left-0 p-[13px]">
+																		<div class="text-xs font-bold leading-4">842 KB
+																		</div>
+																	</div>
+																</a>
+																<a href="javascript:;" class="relative rounded-[4px]">
+																	<img alt="" src="images/placeholder.jpg"
+																		class="rounded-[4px] inline-block h-auto max-w-full w-[182px]">
+																	<div
+																		class="bg-chatPlaceholder rounded-[4px] text-white flex flex-col justify-end w-full h-full absolute top-0 left-0 p-[13px]">
+																		<div class="text-xs font-bold leading-4">
+																			placeholder.jpg</div>
+																		<div class="text-[11px]">842 KB</div>
+																	</div>
+																</a>
+															</div>
+															<span class="text-[#a9a9a9] text-xs">9:00 am</span>
+														</div>
+														<div class="hidden group-hover:block">
+															<ul class="mx-[15px] mt-[15px] inline-block">
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"
+																		title="Share"><i
+																			class="fa fa-share-alt"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-pencil"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-trash-o"></i></a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div>
+												<div
+													class="media-max-w-xs:pl-0 media-max-w-xs:pr-0 pl-12 pr-[10px] block overflow-hidden">
+													<div class="float-left block w-full mb-[10px] group">
+														<div
+															class="float-right bg-chatBubble dark:bg-swapBg media-max-w-xs:max-w-[90%] border border-select dark:border-[#2e3840] rounded-[20px] text-[#727272] max-w-[60%] px-[15px] py-2 block relative">
+															<p>OK!</p>
+															<span
+																class="block text-xs text-right text-chatTimestamp">9:00
+																am</span>
+														</div>
+														<div class="float-right hidden group-hover:block">
+															<ul class="mx-[15px] mt-[15px] inline-block">
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"
+																		title="Share"><i
+																			class="fa fa-share-alt"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-pencil"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-trash-o"></i></a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div>
+												<div class="float-left">
+													<a href="profile.html"
+														class="block w-[30px] h-[30px] leading-[30px] mr-[10px]">
+														<img alt="" src="images/profiles/avatar-05.jpg"
+															class="w-full rounded-full">
+													</a>
+												</div>
+												<div
+													class="ml-[30px] mr-0 media-max-w-xs:pl-0 media-max-w-xs:pr-0 pr-5 mt-[10px] block overflow-hidden">
+													<div class="block w-full float-left mb-[10px] group">
+														<div
+															class="bg-white dark:bg-transparent border border-tableStripe dark:border-transparent media-max-w-xs:max-w-[90%] rounded-[20px] rounded-bl-sm px-[15px] py-2 text-[#666666] float-left relative max-w-[60%]">
+															<p class="text-[#666666]">Uploaded 3 files</p>
+															<ul class="attach-list">
+																<li><i
+																		class="fa fa-file text-[#a3a3a3] mr-[3px] text-base"></i>
+																	<a href="javascript:;"
+																		class="text-[#0d6efd]">example.avi</a></li>
+																<li><i
+																		class="fa fa-file text-[#a3a3a3] mr-[3px] text-base"></i>
+																	<a href="javascript:;"
+																		class="text-[#0d6efd]">activity.psd</a></li>
+																<li><i
+																		class="fa fa-file text-[#a3a3a3] mr-[3px] text-base"></i>
+																	<a href="javascript:;"
+																		class="text-[#0d6efd]">example.psd</a></li>
+															</ul>
+														</div>
+														<div class="hidden group-hover:block">
+															<ul class="mx-[15px] mt-[15px] inline-block">
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"
+																		title="Share"><i
+																			class="fa fa-share-alt"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-pencil"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-trash-o"></i></a></li>
+															</ul>
+														</div>
+													</div>
+													<div class="block w-full float-left mb-[10px] group">
+														<div
+															class="bg-white dark:bg-transparent border border-tableStripe dark:border-transparent media-max-w-xs:max-w-[90%] rounded-[20px] rounded-tl-sm rounded-bl-sm px-[15px] py-2 text-[#666666] float-left relative max-w-[60%]">
+															<p class="text-[#666666]">Consectetuorem ipsum dolor sit?
+															</p>
+															<span class="text-[#a9a9a9] text-xs">8:50 am</span>
+														</div>
+														<div class="hidden group-hover:block">
+															<ul class="mx-[15px] mt-[15px] inline-block">
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"
+																		title="Share"><i
+																			class="fa fa-share-alt"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-pencil"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-trash-o"></i></a></li>
+															</ul>
+														</div>
+													</div>
+													<div class="block w-full float-left mb-[10px] group">
+														<div
+															class="bg-white dark:bg-transparent border border-tableStripe dark:border-transparent media-max-w-xs:max-w-[90%] rounded-[20px] rounded-tl-sm px-[15px] py-2 text-[#666666] float-left relative max-w-[60%]">
+															<p class="text-[#666666]">OK?</p>
+															<span class="text-[#a9a9a9] text-xs">8:55 am</span>
+														</div>
+														<div class="hidden group-hover:block">
+															<ul class="mx-[15px] mt-[15px] inline-block">
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"
+																		title="Share"><i
+																			class="fa fa-share-alt"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-pencil"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-trash-o"></i></a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div>
+												<div
+													class="media-max-w-xs:pl-0 media-max-w-xs:pr-0 pl-12 pr-[10px] block overflow-hidden">
+													<div class="float-left block w-full mb-[10px] group">
+														<div
+															class="float-right text-[#727272] max-w-[60%] px-[15px] py-2 block relative">
+															<p class="text-right mb-4">Uploaded 6 Images</p>
+															<div
+																class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-2 gap-3 mb-3">
+																<a href="javascript:;" class="relative rounded-[4px]">
+																	<img alt="" src="images/placeholder.jpg"
+																		class="rounded-[4px] inline-block h-auto max-w-full w-[182px]">
+																	<div
+																		class="bg-chatPlaceholder rounded-[4px] text-white flex flex-col justify-end w-full h-full absolute top-0 left-0 p-[13px]">
+																		<div class="text-xs font-bold leading-4">842 KB
+																		</div>
+																	</div>
+																</a>
+																<a href="javascript:;" class="relative rounded-[4px]">
+																	<img alt="" src="images/placeholder.jpg"
+																		class="rounded-[4px] inline-block h-auto max-w-full w-[182px]">
+																	<div
+																		class="bg-chatPlaceholder rounded-[4px] text-white flex flex-col justify-end w-full h-full absolute top-0 left-0 p-[13px]">
+																		<div class="text-xs font-bold leading-4">
+																			placeholder.jpg</div>
+																		<div class="text-[11px]">842 KB</div>
+																	</div>
+																</a>
+																<a href="javascript:;" class="relative rounded-[4px]">
+																	<img alt="" src="images/placeholder.jpg"
+																		class="rounded-[4px] inline-block h-auto max-w-full w-[182px]">
+																	<div
+																		class="bg-chatPlaceholder rounded-[4px] text-white flex flex-col justify-end w-full h-full absolute top-0 left-0 p-[13px]">
+																		<div class="text-xs font-bold leading-4">
+																			placeholder.jpg</div>
+																		<div class="text-[11px]">842 KB</div>
+																	</div>
+																</a>
+																<a href="javascript:;" class="relative rounded-[4px]">
+																	<img alt="" src="images/placeholder.jpg"
+																		class="rounded-[4px] inline-block h-auto max-w-full w-[182px]">
+																	<div
+																		class="bg-chatPlaceholder rounded-[4px] text-white flex flex-col justify-end w-full h-full absolute top-0 left-0 p-[13px]">
+																		<div class="text-xs font-bold leading-4">
+																			placeholder.jpg</div>
+																		<div class="text-[11px]">842 KB</div>
+																	</div>
+																</a>
+																<a href="javascript:;" class="relative rounded-[4px]">
+																	<img alt="" src="images/placeholder.jpg"
+																		class="rounded-[4px] inline-block h-auto max-w-full w-[182px]">
+																	<div
+																		class="bg-chatPlaceholder rounded-[4px] text-white flex flex-col justify-end w-full h-full absolute top-0 left-0 p-[13px]">
+																		<div class="text-xs font-bold leading-4">
+																			placeholder.jpg</div>
+																		<div class="text-[11px]">842 KB</div>
+																	</div>
+																</a>
+																<a href="javascript:;" class="relative rounded-[4px]">
+																	<img alt="" src="images/placeholder.jpg"
+																		class="rounded-[4px] inline-block h-auto max-w-full w-[182px]">
+																	<div
+																		class="bg-chatPlaceholder rounded-[4px] text-white flex flex-col justify-end w-full h-full absolute top-0 left-0 p-[13px]">
+																		<div class="text-xs font-bold leading-4">
+																			placeholder.jpg</div>
+																		<div class="text-[11px]">842 KB</div>
+																	</div>
+																</a>
+															</div>
+															<span
+																class="block text-xs text-right text-chatTimestamp">9:00
+																am</span>
+														</div>
+														<div class="float-right hidden group-hover:block">
+															<ul class="mx-[15px] mt-[15px] inline-block">
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"
+																		title="Share"><i
+																			class="fa fa-share-alt"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-pencil"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-trash-o"></i></a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div>
+												<div class="float-left">
+													<a href="profile.html"
+														class="block w-[30px] h-[30px] leading-[30px] mr-[10px]">
+														<img alt="" src="images/profiles/avatar-05.jpg"
+															class="w-full rounded-full">
+													</a>
+												</div>
+												<div
+													class="ml-[30px] mr-0 media-max-w-xs:pl-0 media-max-w-xs:pr-0 pr-5 mt-[10px] block overflow-hidden">
+													<div class="block w-full float-left mb-[10px] group">
+														<div
+															class="bg-white dark:bg-transparent border border-tableStripe dark:border-transparent media-max-w-xs:max-w-[90%] rounded-[20px] px-[15px] py-2 text-[#666666] float-left relative max-w-[60%]">
+															<ul class="attach-list">
+																<li><i
+																		class="fa fa-file-pdf-o text-[#a3a3a3] mr-[3px] text-base"></i>
+																	<a href="javascript:;"
+																		class="text-[#0d6efd]">Document_2016.pdf</a>
+																</li>
+															</ul>
+															<span class="text-[#a9a9a9] text-xs">9:00 am</span>
+														</div>
+														<div class="hidden group-hover:block">
+															<ul class="mx-[15px] mt-[15px] inline-block">
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"
+																		title="Share"><i
+																			class="fa fa-share-alt"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-pencil"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-trash-o"></i></a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div>
+												<div
+													class="media-max-w-xs:pl-0 media-max-w-xs:pr-0 pl-12 pr-[10px] block overflow-hidden">
+													<div class="float-left block w-full mb-[10px] group">
+														<div
+															class="float-right bg-chatBubble dark:bg-swapBg media-max-w-xs:max-w-[90%] border border-select dark:border-[#2e3840] rounded-[20px] text-[#727272] max-w-[60%] px-[15px] py-2 block relative">
+															<ul class="attach-list">
+																<li><i
+																		class="fa fa-file-pdf-o text-[#a3a3a3] mr-[3px] text-base"></i>
+																	<a href="javascript:;"
+																		class="text-[#0d6efd]">Document_2016.pdf</a>
+																</li>
+															</ul>
+															<span
+																class="block text-xs text-right text-chatTimestamp">9:00
+																am</span>
+														</div>
+														<div class="float-right hidden group-hover:block">
+															<ul class="mx-[15px] mt-[15px] inline-block">
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"
+																		title="Share"><i
+																			class="fa fa-share-alt"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-pencil"></i></a></li>
+																<li class="inline-block ml-[5px] text-lg"><a
+																		href="javascript:;" class="text-[#8c8c8c]"><i
+																			class="fa fa-trash-o"></i></a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div>
+												<div class="float-left">
+													<a href="profile.html"
+														class="block w-[30px] h-[30px] leading-[30px] mr-[10px]">
+														<img alt="" src="images/profiles/avatar-05.jpg"
+															class="w-full rounded-full">
+													</a>
+												</div>
+												<div
+													class="ml-[30px] mr-0 media-max-w-xs:pl-0 media-max-w-xs:pr-0 pr-5 mt-[10px] block overflow-hidden">
+													<div class="block w-full float-left mb-[10px] group">
+														<div
+															class="bg-white dark:bg-transparent border border-tableStripe dark:border-transparent rounded-[20px] px-[15px] py-2 text-[#666666] float-left relative max-w-[60%]">
+															<p class="text-[#666666]">Typing ...</p>
+														</div>
+													</div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="bg-white dark:bg-[#2e3439] border-t border-tableStripe dark:border-[#2e3439] p-[15px]">
+								<div class="table h-11 relative w-full">
+									<div class="table-row w-full h-full px-2">
+										<a class="text-[#777777] table-cell text-xl px-[10px] relative align-middle w-[30px]"
+											href="javascript:;"><img src="images/attachment.png" class="max-w-none"
+												alt=""></a>
+
+										<div class="table-cell">
+											<div class="relative flex flex-wrap items-stretch w-full">
+												<textarea
+													class="bg-white dark:bg-swapBg min-w-0 w-[1%] relative outline-none flex-grow flex-shrink basis-auto rounded-t rounded-l border border-tableStripe dark:border-[#2e3840] text-[#555555] dark:text-swapText block text-sm h-11 px-3 py-[6px] resize-none"
+													placeholder="Type message..."></textarea>
+												<button
+													class="flex items-center justify-center text-white bg-gradient-to-r from-[#ff9b44] to-[#fc6075] rounded-tl-none rounded-bl-none rounded-[5px] -ml-[1px] w-[50px] h-11 relative z-10"
+													type="button"><i class="fa fa-send"></i></button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="task_window"
+						class="chat-sidebar table-cell align-top fixed media-max-w-md:right-0 media-min-w-md:static w-[300px] h-full media-max-w-md:-mr-[300px] z-10 transition-all ease-in-out duration-[0.2s]"
+						x-data="{ tab: 'profile' }">
+						<div class="table table-fixed w-full h-full bg-body">
+							<div
+								class="flex items-center justify-between bg-white dark:bg-swapBg border-b border-[#e0e3e4] dark:border-[#2e3840] text-[#324148]">
+								<div class="w-full">
+									<ul class="border-b border-[#dee2e6] dark:border-[#2e3840] bg-white dark:bg-swapBg media-max-w-sm:p-[5px]">
+										<li class="inline-block md:-mb-[1px]"><a href="javascript:;"
+												class="block px-[15px] py-[18px] md:-mb-[1px] media-max-w-sm:border-l-2 md:border-b-2 border-transparent text-[#666666]"
+												:class="{ 'active': tab === 'calls', 'border-primary media-max-w-sm:bg-[#f5f5f5] text-[#495057] dark:text-white': tab === 'calls' }"
+												x-on:click.prevent="tab = 'calls'">Calls</a></li>
+										<li class="inline-block md:-mb-[1px]"><a href="javascript:;"
+												class="block px-[15px] py-[18px] md:-mb-[1px] media-max-w-sm:border-l-2 md:border-b-2 border-transparent text-[#666666]"
+												:class="{ 'active': tab === 'profile', 'border-primary media-max-w-sm:bg-[#f5f5f5]': tab === 'profile', 'text-[#495057] dark:text-white': tab === 'profile' }"
+												x-on:click.prevent="tab = 'profile'">Profile</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="table-row h-full bg-white dark:bg-swapBg">
+								<div class="relative w-full h-full">
+									<div class="absolute inset-0 w-full overflow-auto media-max-w-md:mb-[68px]">
+										<div x-show="tab === 'calls'">
+											<div class="px-[15px] pt-[15px] pb-[30px] w-full bg-white dark:bg-swapBg">
+												<div class="flex items-start mb-5">
+													<div class="relative">
+														<a href="profile.html"
+															class="block w-[30px] h-[30px] mr-[10px]">
+															<img alt="John Doe" src="images/profiles/avatar-02.jpg"
+																class="rounded-full">
+														</a>
+													</div>
+													<div>
+														<div class="block w-full mb-[10px]">
+															<div class="text-[#666666]">
+																<span class="text-link dark:text-swapText text-[13px]">You</span> <span
+																	class="text-[#666666] inline-block text-[11px]">8:35
+																	am</span>
+																<div class="flex mt-[10px]">
+																	<i class="material-icons">phone_missed</i>
+																	<div class="ml-[10px]">
+																		<div
+																			class="block overflow-ellipsis overflow-hidden whitespace-nowrap">
+																			<span class="whitespace-nowrap">Jeffrey
+																				Warden missed the call</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="flex items-start mb-5">
+													<div class="relative">
+														<a href="profile.html"
+															class="block w-[30px] h-[30px] mr-[10px]">
+															<img alt="John Doe" src="images/profiles/avatar-02.jpg"
+																class="rounded-full">
+														</a>
+													</div>
+													<div>
+														<div class="block w-full mb-[10px]">
+															<div class="text-[#666666]">
+																<span class="text-link dark:text-swapText text-[13px]">John Doe</span>
+																<span
+																	class="text-[#666666] inline-block text-[11px]">8:35
+																	am</span>
+																<div class="flex mt-[10px]">
+																	<i class="material-icons">phone_missed</i>
+																	<div class="ml-[10px]">
+																		<div
+																			class="block overflow-ellipsis overflow-hidden whitespace-nowrap">
+																			<span class="whitespace-nowrap">This call
+																				has ended</span>
+																		</div>
+																		<div
+																			class="text-[#727272] flex text-sm mt-[1px] overflow-hidden">
+																			Duration: <strong>5 min 57 sec</strong>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div
+													class="border-b border-tableStripe dark:border-[#2e3840] h-3 mt-[7px] mb-[20px] relative text-center">
+													<span class="bg-white dark:bg-swapBg text-[#727272] text-xs px-[11px]">January
+														29th, 2022</span>
+												</div>
+												<div class="flex items-start mb-5">
+													<div class="relative">
+														<a href="profile.html"
+															class="block w-[30px] h-[30px] mr-[10px]">
+															<img alt="John Doe" src="images/profiles/avatar-09.jpg"
+																class="rounded-full">
+														</a>
+													</div>
+													<div>
+														<div class="block w-full mb-[10px]">
+															<div class="text-[#666666]">
+																<span class="text-link dark:text-swapText text-[13px]">Richard Miles</span>
+																<span
+																	class="text-[#666666] inline-block text-[11px]">8:35
+																	am</span>
+																<div class="flex mt-[10px]">
+																	<i class="material-icons">phone_missed</i>
+																	<div class="ml-[10px]">
+																		<div
+																			class="block overflow-ellipsis overflow-hidden whitespace-nowrap">
+																			<span class="whitespace-nowrap">You missed
+																				the call</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="flex items-start mb-5">
+													<div class="relative">
+														<a href="profile.html"
+															class="block w-[30px] h-[30px] mr-[10px]">
+															<img alt="John Doe" src="images/profiles/avatar-09.jpg"
+																class="rounded-full">
+														</a>
+													</div>
+													<div>
+														<div class="block w-full mb-[10px]">
+															<div class="text-[#666666]">
+																<span class="text-link dark:text-swapText text-[13px]">You</span> <span
+																	class="text-[#666666] inline-block text-[11px]">8:35
+																	am</span>
+																<div class="flex mt-[10px]">
+																	<i class="material-icons">ring_volume</i>
+																	<div class="ml-[10px]">
+																		<div
+																			class="block overflow-ellipsis overflow-hidden whitespace-nowrap">
+																			<a href="javascript:;"
+																				class="whitespace-nowrap text-[#0d6efd]">Calling
+																				John Smith ...</a>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div x-show="tab === 'profile'">
+											<div class="relative p-[30px] text-center">
+												<div class="relative w-[120px] h-[120px] mx-auto cursor-pointer group">
+													<img src="images/profiles/avatar-02.jpg"
+														class="w-full h-auto rounded-full" alt="">
+													<span
+														class="bg-proileEditoverlay rounded-full text-white hidden w-full h-full absolute top-0 left-0 right-0 leading-[120px] group-hover:block">Change
+														Image</span>
+												</div>
+												<h3 class="text-2xl text-link dark:text-swapText mt-[10px]">John Doe</h3>
+												<small class="text-muted text-[0.875em]">Web Designer</small>
+												<a href="javascript:void(0);"
+													class="bg-primary border border-primary absolute w-9 h-9 top-[15px] right-[15px] rounded-full text-white flex items-center justify-center"><i
+														class="fa fa-pencil"></i></a>
+											</div>
+											<div class="p-[15px]">
+												<ul class="mb-4">
+													<li class="px-[15px] py-[6px] flex items-center justify-between">
+														<span class="dark:text-[#bbc4cc]">Username:</span>
+														<span class="text-right text-muted">johndoe</span>
+													</li>
+													<li class="px-[15px] py-[6px] flex items-center justify-between">
+														<span class="dark:text-[#bbc4cc]">DOB:</span>
+														<span class="text-right text-muted">24 July</span>
+													</li>
+													<li class="px-[15px] py-[6px] flex items-center justify-between">
+														<span class="dark:text-[#bbc4cc]">Email:</span>
+														<span class="text-right text-muted">johndoe@example.com</span>
+													</li>
+													<li class="px-[15px] py-[6px] flex items-center justify-between">
+														<span class="dark:text-[#bbc4cc]">Phone:</span>
+														<span class="text-right text-muted">9876543210</span>
+													</li>
+												</ul>
+											</div>
+											<div x-data="{ tab: 'Afiles' }">
+												<ul
+													class="grid grid-cols-2 gap-0 md:bg-[#fafafa] dark:bg-swapBg media-max-w-sm:border media-max-w-sm:border-[#dddddd] media-max-w-sm:p-[5px]">
+													<li class="inline-block"><a href="javascript:;"
+															class="block text-center px-4 py-2 dark:text-swapText"
+															:class="{ 'active': tab === 'Afiles', 'border-primary bg-primary text-white dark:text-white': tab === 'Afiles' }"
+															x-on:click.prevent="tab = 'Afiles'">All Files</a></li>
+													<li class="inline-block"><a href="javascript:;"
+															class="block text-center px-4 py-2 dark:text-swapText"
+															:class="{ 'active': tab === 'Mfiles', 'border-primary bg-primary text-white dark:text-white': tab === 'Mfiles' }"
+															x-on:click.prevent="tab = 'Mfiles'">My Files</a></li>
+												</ul>
+												<div>
+													<div x-show="tab === 'Afiles'">
+														<ul class="mb-4">
+															<li class="border-b border-tableStripe dark:border-[#2e3840] mt-[2px] p-[10px]">
+																<div class="relative group">
+																	<div class="w-12 h-12 absolute">
+																		<span
+																			class="bg-[#f5f5f5] border border-[#dddddd] rounded-[4px] w-[38px] h-[38px] leading-[38px] text-center inline-block"><i
+																				class="fa fa-file-pdf-o text-[#777777] text-xl"></i></span>
+																	</div>
+																	<div class="pr-[30px] pl-[50px]">
+																		<span
+																			class="block max-w-full dark:text-swapText overflow-hidden overflow-ellipsis whitespace-nowrap">AHA
+																			Selfcare Mobile Application
+																			Test-Cases.xls</span>
+																		<span><a href="javascript:;"
+																				class="text-primary text-xs underline">Loren
+																				Gatlin</a></span> <span
+																			class="text-xs text-[#666666]">May 31st at
+																			6:53 PM</span>
+																	</div>
+																	<ul class="hidden group-hover:block w-[30px] h-[30px] absolute top-[10px] right-0 text-right"
+																		x-data="{cardAction:false, editmodelOpen:false}">
+																		<li class="">
+																			<a href="javascript:;"
+																				class="text-[#777777] text-lg inline-block"
+																				@click="cardAction = ! cardAction"><i
+																					class="material-icons">more_horiz</i></a>
+																			<div class="absolute py-2 right-0 border rounded-[3px] bg-white min-w-[10rem] z-50"
+																				x-show="cardAction">
+																				<a class="block clear-both w-full text-left text-[13px] whitespace-nowrap px-[10px] py-[5px] hover:bg-[#e9ecef]"
+																					href="javascript:;"
+																					@click.prevent="cardActionfalse">Download</a>
+																				<a class="block clear-both w-full text-left text-[13px] whitespace-nowrap px-[10px] py-[5px] hover:bg-[#e9ecef]"
+																					href="javascript:;"
+																					@click="editmodelOpen = ! editmodelOpen">Share</a>
+																			</div>
+																			<div x-show="editmodelOpen"
+																				class="fixed top-0 left-0 right-0 w-full text-left h-full outline-none overflow-x-hidden overflow-y-auto z-[9999]"
+																				@click.prevent="cardAction=false"
+																				aria-labelledby="modal-title"
+																				role="dialog" aria-modal="true">
+																				<div
+																					class="flex items-center justify-center min-h-screen">
+																					<div x-cloak
+																						@click="editmodelOpen = false"
+																						x-show="editmodelOpen"
+																						x-transition:enter="transition ease-out duration-300 transform"
+																						x-transition:enter-start="opacity-0"
+																						x-transition:enter-end="opacity-100"
+																						x-transition:leave="transition ease-in duration-200 transform"
+																						x-transition:leave-start="opacity-100"
+																						x-transition:leave-end="opacity-0"
+																						class="fixed inset-0 transition-opacity bg-blackOverlay bg-opacity-40"
+																						aria-hidden="true"></div>
+
+																					<div x-cloak x-show="editmodelOpen"
+																						x-transition:enter="transition ease-out duration-300 transform"
+																						x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+																						x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+																						x-transition:leave="transition ease-in duration-200 transform"
+																						x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+																						x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+																						class="bg-white m-2 media-max-w-xs:w-full sm:mx-auto sm:my-7 sm:min-w-[600px] rounded-[10px] relative z-[9999] transition-all transform">
+																						<div
+																							class="pt-[30px] px-[30px] text-center">
+																							<h5
+																								class="text-[22px] capitalize">
+																								Share File</h5>
+																							<button type="button"
+																								class="bg-[#a0a0a0] w-5 h-5 rounded-full absolute top-[10px] right-[10px] text-white leading-5 z-50"
+																								@click="editmodelOpen = false">
+																								<span
+																									aria-hidden="true">&times;</span>
+																							</button>
+																						</div>
+																						<div class="p-[30px]">
+																							<form>
+																								<div
+																									class="grid grid-cols-1 gap-6">
+																									<div
+																										class="border border-[#eaeaea] p-[15px] rounded">
+																										<div
+																											class="w-12 h-12 absolute">
+																											<span
+																												class="bg-[#f5f5f5] border border-[#dddddd] rounded-[4px] w-[38px] h-[38px] leading-[38px] text-center inline-block"><i
+																													class="fa fa-file-pdf-o text-[#777777] text-xl"></i></span>
+																										</div>
+																										<div
+																											class="pr-[30px] pl-[50px]">
+																											<span
+																												class="block max-w-full dark:text-swapText overflow-hidden overflow-ellipsis whitespace-nowrap">AHA
+																												Selfcare
+																												Mobile
+																												Application
+																												Test-Cases.xls</span>
+																											<span><a href="javascript:;"
+																													class="text-primary text-xs underline">Loren
+																													Gatlin</a></span>
+																											<span
+																												class="text-xs text-[#666666]">May
+																												31st at
+																												6:53
+																												PM</span>
+																										</div>
+																									</div>
+																									<div>
+																										<label>Share
+																											with</label>
+																										<input
+																											class="block w-full inputStyle"
+																											type="text">
+																									</div>
+																								</div>
+																								<div
+																									class="mt-10 text-center">
+																									<button
+																										class="submit-btn"
+																										@click="editmodelOpen = false">Share</button>
+																								</div>
+																							</form>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																		</li>
+																	</ul>
+																</div>
+															</li>
+														</ul>
+													</div>
+													<div x-show="tab === 'Mfiles'">
+														<ul class="mb-4">
+															<li class="border-b border-tableStripe dark:border-[#2e3840] mt-[2px] p-[10px]">
+																<div class="relative group">
+																	<div class="w-12 h-12 absolute">
+																		<span
+																			class="bg-[#f5f5f5] border border-[#dddddd] rounded-[4px] w-[38px] h-[38px] leading-[38px] text-center inline-block"><i
+																				class="fa fa-file-pdf-o text-[#777777] text-xl"></i></span>
+																	</div>
+																	<div class="pr-[30px] pl-[50px]">
+																		<span
+																			class="block max-w-full dark:text-swapText overflow-hidden overflow-ellipsis whitespace-nowrap">AHA
+																			Selfcare Mobile Application
+																			Test-Cases.xls</span>
+																		<span><a href="javascript:;"
+																				class="text-primary text-xs underline">John
+																				Doe</a></span> <span
+																			class="text-xs text-[#666666]">May 31st at
+																			6:53 PM</span>
+																	</div>
+																	<ul class="hidden group-hover:block w-[30px] h-[30px] absolute top-[10px] right-0 text-right"
+																		x-data="{cardAction:false}">
+																		<li class="">
+																			<a href="javascript:;"
+																				class="text-[#777777] text-lg inline-block"
+																				@click="cardAction = ! cardAction"><i
+																					class="material-icons">more_horiz</i></a>
+																			<div class="absolute py-2 right-0 border rounded-[3px] bg-white min-w-[10rem] z-50"
+																				x-show="cardAction">
+																				<a class="block clear-both w-full text-left text-[13px] whitespace-nowrap px-[10px] py-[5px] hover:bg-[#e9ecef]"
+																					href="javascript:;"
+																					@click.prevent="cardAction=false">Download</a>
+																				<a class="block clear-both w-full text-left text-[13px] whitespace-nowrap px-[10px] py-[5px] hover:bg-[#e9ecef]"
+																					href="javascript:;"
+																					@click.prevent="cardAction=false">Share</a>
+																			</div>
+																		</li>
+																	</ul>
+																</div>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+		<div class="settings-icon fixed right-5 bottom-5 z-[10005]"> 
+			<span id="colorswitch-blk" class="flex items-center justify-center w-[45px] h-[45px] rounded-[50px] cursor-pointer text-white text-2xl animate-colorSwap">
+				<i class="las la-cog"></i>
+			</span> 
+		</div> 
+ 
+		<div class="offcanvas fixed top-0 right-0 bottom-0 offcanvas-end z-[999999] dark:bg-swapBody dark:text-swapText" id="theme-settings-offcanvas"> 
+			<div class="flex justify-between items-center pb-[25px] px-[25px] border-b dark:!border-swapBorderPrimary">
+				<div>
+					<h2 class="text-[25px] mb-2">Customizer</h2>
+					<h3 class="text-[15px]">Customize your overview Page layout</h3>
+				</div>
+				<div class="color-switchclose">
+					<a href="javascript:;"><img src="images/close.png" alt="img"></a>
+				</div>
+			</div>
+			<div class="overflow-y-auto flex-grow"> 
+				<div class="h-full"> 
+					<div>  
+							<div class="p-[25px]">
+								<h5 class="text-base mb-2">Color Scheme</h5>
+								<h6 class="text-sm">Choose Light or Dark Scheme.</h6>
+							</div>
+							<div class="colorscheme-cardradio"> 
+								<div class="flex flex-wrap gap-3 px-[25px]"> 
+									<div>
+										<div class="form-check card-radio p-0"> 
+											<input class="form-check-input cursor-pointer" type="radio" name="data-layout-mode" id="skin-orange" value="orange" checked> 
+											<!-- <label class="form-check-label p-[10px] w-full before:content-['✓'] before:absolute before:top-[40%] before:left-[40%] before:text-[10px] before:bg-[#3BB800] before:font-black before:w-5 before:h-5 before:flex before:items-center before:justify-center before:rounded-full" for="layout-mode-orange">  -->
+												<label class="form-check-label dark:!border-[#ced4da] p-[10px] w-full" for="skin-orange"> 
+												<img src="images/vertical.png" alt="img">
+										</label>
+									</div> 
+									<h5 class="fs-13 text-center mt-2">Orange</h5>
+								</div> 
+								<div>
+									<div class="form-check card-radio p-0"> 
+										<input class="form-check-input" type="radio" name="data-layout-mode" id="skin-light" value="light"> 
+										<label class="form-check-label dark:!border-[#ced4da] p-[10px] w-full" for="skin-light"> 
+											<img src="images/vertical.png" alt="img">
+										</label> 
+									</div> 
+									<h5 class="fs-13 text-center mt-2">Light</h5> 
+								</div> 
+								<div>
+									<div class="form-check card-radio dark  p-0 "> 
+										<input class="form-check-input" type="radio" name="data-layout-mode" id="skin-dark" value="dark"> 
+										<label class="form-check-label dark:!border-[#ced4da] p-[10px] w-full " for="skin-dark"> 
+											<img src="images/vertical.png" alt="img">
+										</label> 
+									</div> 
+									<h5 class="fs-13 text-center mt-2">Dark</h5> 
+								</div> 
+								<div>
+									<div class="form-check card-radio blue  p-0 "> 
+										<input class="form-check-input" type="radio" name="data-layout-mode" id="skin-blue" value="blue"> 
+										<label class="form-check-label dark:!border-[#ced4da] p-[10px] w-full" for="skin-blue"> 
+											<img src="images/vertical.png" alt="img">
+										</label> 
+									</div> 
+									<h5 class="fs-13 text-center mt-2">Blue</h5> 
+								</div> 
+								<div>
+									<div class="form-check card-radio maroon p-0"> 
+										<input class="form-check-input" type="radio" name="data-layout-mode" id="skin-maroon" value="maroon"> 
+										<label class="form-check-label dark:!border-[#ced4da] p-[10px] w-full " for="skin-maroon"> 
+											<img src="images/vertical.png" alt="img">
+										</label> 
+									</div> 
+									<h5 class="fs-13 text-center mt-2">Maroon</h5> 
+								</div> 
+								<div>
+									<div class="form-check card-radio purple p-0"> 
+										<input class="form-check-input" type="radio" name="data-layout-mode" id="skin-purple" value="purple"> 
+										<label class="form-check-label dark:!border-[#ced4da] p-[10px] w-full " for="skin-purple"> 
+											<img src="images/vertical.png" alt="img">
+										</label> 
+									</div> 
+									<h5 class="fs-13 text-center mt-2">Purple</h5> 
+								</div> 	
+							</div> 
+						</div> 
+
+					</div> 
+				</div> 
+
+			</div> 
+			<div class="offcanvas-footer dark:bg-swapBody gap-3 flex justify-between items-center pt-[25px] px-[25px] border-t border-borderBottom dark:!border-swapBorderPrimary"> 
+					<div class="w-full"> 
+						<button type="button" class="btn w-full btn-reset" id="reset-layout">Reset</button> 
+					</div> 
+					<div class="w-full"> 
+						<a href="https://themeforest.net/item/smarthr-tailwind-css-admin-dashboard-template/37897693" target="_blank" class="btn-buynow px-3 py-[6px] block bg-primary hover:bg-btnPrimary-hoverbgColor w-full">Buy Now</a> 
+					</div> 
+			</div> 
+		</div>
+	<!-- jQuery -->
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<script src="js/alpine.min.js" defer></script>
+
+	<!-- Custom JS -->
+	<script src="js/app.js"></script>
+
+</body>
+
+</html>

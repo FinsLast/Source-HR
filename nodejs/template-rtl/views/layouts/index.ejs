@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<%- include('./layout-html.ejs') %>
+<head>
+	<%- include('./meta.ejs') %>
+	<title>
+		<%- typeof title !='undefind' ? title: 'Dashboard - HRMS admin template' %>
+	</title>
+	<%- include('./styles.ejs') %>
+</head>
+<body class="<%= active_path === 'error' && 'error-page' %> <%= active_path === 'auth' && 'account-page' %>" >
+	<div class="main-wrapper">
+		<% if(active_path == 'error' || active_path == 'auth'){ %>
+			<% } else{ %>
+				<%- include('./main-wrapper-header') %>
+				<% if(active_path == 'job-list' || active_path == 'job-view' || active_path == 'change-password'){ %>
+					<% } else{ %>
+						<%- include('./sidebar-menu.ejs') %>
+						<%- include('./twocol.ejs') %>
+						<% } %>
+						<% } %>
+						<main>
+							<%-body %>
+						</main>
+					</div>
+					<% if(active_path == 'error' || active_path == 'auth'){ %>
+						<% } else { %>
+							<%- include('./layouts.ejs') %>
+							<%} %>
+							<%- include('./script.ejs') %>
+							<!-- Custom JS -->
+							<script src="assets/js/app.js"></script>
+						</body>
+						</html>

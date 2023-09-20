@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+		<title>Smart HR Bootstrap NodeJs Template - Documentation</title>
+		
+		<!-- Favicon -->
+		<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+		
+		<!-- Fontawesome CSS -->
+		<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
+		<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+		
+		<!-- Styles -->
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css">		
+		<link rel="stylesheet" href="assets/css/style.css">
+		
+	</head>
+
+	<body data-bs-spy="scroll" data-bs-target="#sidebar-menu" data-bs-offset="100">
+		
+		<div class="main-wrapper">
+			<!-- Header -->
+			<header>
+				<nav class="navbar" id="home">
+					<div class="container-fluid">
+						<div class="navbar-left">
+							<a class="navbar-brand" href="index-nodejs.html">
+								<img class="logo-dark" src="assets/img/dreamguys-logo.png" alt="logo">
+							</a>
+						</div>
+						<div class="action-list">
+							<a class="btn btn-primary btn-live" target="_blank" href="https://themeforest.net/item/smarthr-bootstrap-admin-panel-template/21153150">Buy Now</a>
+							<a class="btn btn-primary btn-live" target="_blank" href="https://smarthr.dreamguystech.com/">Live Demo <i class="fas fa-arrow-right ps-2"></i></a>
+							<a class="support-btn" target="_blank" href="https://themeforest.net/user/dreamguys"><img class="img-fluid" src="assets/img/headset_mic.png" alt="icon"> Support</a>
+						</div>
+					</div>
+				</nav>
+				
+				<!-- Mobile Menu Toggle -->
+				<a class="mobile_btn" id="mobile_btn">
+					<i class="fas fa-bars"></i>
+				</a>
+				<!-- /Mobile Menu Toggle -->
+				
+			</header>
+			<!-- Header -->
+			
+			<!-- Main Wrapper -->
+		
+			<div class="sidebar" id="sidebar">
+				<div class="sidebar-inner slimscroll">
+					<div id="sidebar-menu" class="sidebar-menu sidebar-body">
+						<h2>Table Of Content</h2>
+						<ul class="nav nav-sidebar">
+							<li class="nav-item">
+								<a class="nav-link" href="#introduction">1.Introduction</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#installation">2. Installation</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#file_structure">3. File Structure</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#credits">4. Credits</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#support">5. SUPPORT</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#thanks">6. THANK YOU</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="page-wrapper" id="introduction">
+				<div class="content container-fluid">
+					<div class="logo">
+						<a class="main-logo" href="index-nodejs.html">
+							<img class="img-fluid" src="assets/img/logo.png" alt="logo">
+						</a>
+					</div>
+					<p><strong>SmartHR</strong> is a simple, intelligent and user-friendly solution that offers many kinds of technology modules to help in automating your human resource practices. The feature-rich Web Template is designed to manage Employee management, Clients management, Project management, Task management, Leads management, Account management, Payroll management,Timing system, Tickets management, Events management, Email system, Chat system, Assets management, Activities tracking system, Invoice and Estimate management and User management of all departments in an organization.</p>
+					<hr>
+					<div class="page-header">
+						<h4>Documentation</h4>
+						<ul>
+							<li>Created on: 22 Mar 2023</li>
+							<li>Developed by: <a target="_blank" href="https://dreamguys.co.in/">DreamGuy's Technologies</a>
+							</li>
+							<li>Support via email: <a href="mailto:admin@dreamguys.co.in">business@dreamguys.co.in</a>
+							</li>
+							<li>Support via Themeforest: <a target="_blank" href="https://themeforest.net/user/dreamguys/">Take me there</a></li>
+							<li>Smarthr-NodeJS template is built with NodeJS 18</li>
+						</ul>
+					</div>
+					<hr>
+					<section id="installation">
+						<h4>2. Installation Guide</h4>
+						<ul>
+							<li>Node.js and NPM : If NodeJS is not installed then download it from <a href="https://nodejs.org/" target="_blank">https://nodejs.org/</a>. NPM comes bundled with Node.js</li>
+						
+						</ul>
+						<h4>NPM Packages</h4>
+						<p>Before proceding you'll need to install npm packages. You can do this by running npm install from the root of your project to install all the necessary dependencies.</p>
+						<div class="highlight-box mb-3">
+							<p class="mb-0">npm install</p>
+						</div>
+						<h4>Development Server</h4>
+						<p>Run <span class="text-primary">npm run start</span> for a dev server. Navigate to <a href="localhost:3000/">localhost:3000/</a>. The app will autometically reload if you change any of the source files.</p>
+						<div class="highlight-box mb-3">
+							<p class="mb-0">npm run start</p>
+						</div>
+						<h4>Build Project</h4>
+						<ul>
+							<li>Run <span class="text-primary">npm run build</span> to build the project.</li>
+							<li>After that you will get dist folder inside source code folder.</li>
+							<li>Copy everything within the output folder (dist/ by default) to a folder on the server.</li>
+				
+							<li>Now you can run this Template in any web.</li>
+						</ul>
+						<h4>More Help</h4>
+					</section>
+			
+					<section id="file_structure">
+						<h2>3. STRUCTURE</h2>
+						<p> File Structure - is the way you organize your folders and files on your computer. Keeping all your documents under one folder is a great way to keep organized and make things easy for backing up your computer. </p>
+						<div class="file-wrap">
+						
+<pre><i class="fas fa-folder"></i><span>Smarthr/ </span>
+│
+└── <i class="fas fa-folder"></i><span>template/ </span>
+	│
+	└── <i class="fas fa-folder"></i><span>dist/ </span>             
+	│
+	└── <i class="fas fa-folder"></i><span>node_modules/ </span>       
+	│
+	└── <i class="fas fa-folder"></i><span>public/  </span> 
+		│
+		└── <i class="fas fa-folder"></i><span>assets/  </span>             
+	│
+	└── <i class="fas fa-folder"></i><span>server/ </span>  
+		│
+		└── <i class="fas fa-folder"></i><span>controller/ </span> 
+		│
+		└── <i class="fas fa-folder"></i><span>routes/ </span>               
+	│
+	└── <i class="fas fa-folder"></i><span>views/</span>   
+	│
+	└── <i class="fas fa-folder"></i><span>.babelrc.js</span>  
+	│          
+	└── <i class="fas fa-folder"></i><span>.env </span>             
+	│          
+	└── <i class="fas fa-folder"></i><span>app.js </span>             
+	│
+	└── <i class="fas fa-folder"></i><span>package.json </span>       
+	│
+	└── <i class="fas fa-folder"></i><span>package-lock.json   </span>              
+	│
+	└── <i class="fas fa-folder"></i><span>README.md/  </span>              
+	│
+	└── <i class="fas fa-folder"></i><span>webpack.config.js</span>      
+│
+└── <i class="fas fa-folder"></i><span>template-rtl/ </span>
+
+</pre>
+						</div>
+					</section>
+						
+					<section id="credits" class="mb-30">
+						<h2>4. CREDITS</h2>
+						<p>We've used the following resources as listed. These are some awesome creation and we are thankful to the community.</p>
+						<ul class="credit-list">
+							<li><a target="_blank" href="http://www.google.com/fonts">Google Fonts</a></li>
+							<li><a target="_blank" href="http://getbootstrap.com/">Bootstrap</a></li>
+							<li><a target="_blank" href="https://fullcalendar.io/">Full Calendar</a></li>
+							<li><a target="_blank" href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a></li>
+							<li><a target="_blank" href="https://expressjs.com/">Express</a></li>
+							<li><a target="_blank" href="https://ejs.co/">EJS</a></li>
+							<li><a target="_blank" href="https://webpack.js.org/">Webpack</a></li>
+						</ul>
+					</section>
+					<section id="support" class="mb-30">
+						<h2>5. SUPPORT</h2>
+						<p class="mb-0">If you have any queries please contact us through email: <strong>business@dreamguys.co.in</strong>
+						</p>
+					</section>
+					<section id="thanks" class="mb-0">
+						<h2>6. THANK YOU</h2>
+						<p>Thank you so much for using this template</p>
+						<a target="_blank" href="https://themeforest.net/user/dreamguys"><strong>Dreamguy's Technologies Pvt Ltd,</strong></a>
+					</section>
+				</div>
+			</div>
+		
+			<!-- Footer -->
+			<footer class="footer">
+				<div class="container-fluid">
+					<div class="row align-items-center">
+						<div class="col-sm-12">
+							<p class="mb-0">© 2023 Smart Hr. All rights reserved.</p>
+						</div>
+						<a href="#" class="top-move"><i class="fas fa-arrow-up"></i></a>
+					</div>
+				</div>
+			</footer>
+			<!-- /footer -->
+				
+		</div>
+		<!-- /Main Wrapper -->
+		
+		<script src="assets/js/jquery-3.6.0.min.js"></script>
+		<script src="assets/js/bootstrap.bundle.min.js"></script>
+		
+		<!-- Slimscroll JS -->
+		<script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+		
+		<script src="assets/js/script.js"></script>
+	
+		
+	</body>
+</html>

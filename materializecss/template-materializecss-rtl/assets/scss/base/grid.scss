@@ -1,0 +1,262 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+.row .col {
+	width:$__auto;
+	padding-left:$__grid__padding__left;
+	padding-right:$__grid__padding__right;
+	float:$__left;
+	// flex: 1 0 0%;
+	position: $__relative;
+  	min-height: 1px;
+
+	@include respond-above(xs) {
+		&.xs12 {
+			width: $__col__12;
+		}
+		&.xs11 {
+			width: $__col__11;
+		}
+		&.xs10 {
+			width: $__col__10;
+		}
+		&.xs9 {
+			width: $__col__9;
+		}
+		&.xs8 {
+			width: $__col__8;
+		}
+		&.xs7 {
+			width: $__col__7;
+		}
+		&.xs6 {
+			width: $__col__6;
+		}
+		&.xs5 {
+			width: $__col__5;
+		}
+		&.xs4 {
+			width: $__col__4;
+		}
+		&.xs3 {
+			width: $__col__3;
+		}
+		&.xs2 {
+			width: $__col__2;
+		}
+		&.xs1 {
+			width: $__col__1;
+		}
+	}
+	@include respond-above(sm) {
+		&.s12 {
+			width: $__col__12;
+		}
+		&.s11 {
+			width: $__col__11;
+		}
+		&.s10 {
+			width: $__col__10;
+		}
+		&.s9 {
+			width: $__col__9;
+		}
+		&.s8 {
+			width: $__col__8;
+		}
+		&.s7 {
+			width: $__col__7;
+		}
+		&.s6 {
+			width: $__col__6;
+		}
+		&.s5 {
+			width: $__col__5;
+		}
+		&.s4 {
+			width: $__col__4;
+		}
+		&.s3 {
+			width: $__col__3;
+		}
+		&.s2 {
+			width: $__col__2;
+		}
+		&.s1 {
+			width: $__col__1;
+		}
+	}
+
+	@include respond-above(md) {
+		&.m12 {
+			width: $__col__12;
+		}
+		&.m11 {
+			width: $__col__11;
+		}
+		&.m10 {
+			width: $__col__10;
+		}
+		&.m9 {
+			width: $__col__9;
+		}
+		&.m8 {
+			width: $__col__8;
+		}
+		&.m7 {
+			width: $__col__7;
+		}
+		&.m6 {
+			width: $__col__6;
+		}
+		&.m5 {
+			width: $__col__5;
+		}
+		&.m4 {
+			width: $__col__4;
+		}
+		&.m3 {
+			width: $__col__3;
+		}
+		&.m2 {
+			width: $__col__2;
+		}
+		&.m1 {
+			width: $__col__1;
+		}
+	}
+
+	@include respond-above(lg) {
+		&.l12 {
+			width: $__col__12;
+		}
+		&.l11 {
+			width: $__col__11;
+		}
+		&.l10 {
+			width: $__col__10;
+		}
+		&.l9 {
+			width: $__col__9;
+		}
+		&.l8 {
+			width: $__col__8;
+		}
+		&.l7 {
+			width: $__col__7;
+		}
+		&.l6 {
+			width: $__col__6;
+		}
+		&.l5 {
+			width: $__col__5;
+		}
+		&.l4 {
+			width: $__col__4;
+		}
+		&.l3 {
+			width: $__col__3;
+		}
+		&.l2 {
+			width: $__col__2;
+		}
+		&.l1 {
+			width: $__col__1;
+		}
+	}
+	@include respond-above(xl) {
+		&.xl12 {
+			width: $__col__12;
+		}
+		&.xl11 {
+			width: $__col__11;
+		}
+		&.xl10 {
+			width: $__col__10;
+		}
+		&.xl9 {
+			width: $__col__9;
+		}
+		&.xl8 {
+			width: $__col__8;
+		}
+		&.xl7 {
+			width: $__col__7;
+		}
+		&.xl6 {
+			width: $__col__6;
+		}
+		&.xl5 {
+			width: $__col__5;
+		}
+		&.xl4 {
+			width: $__col__4;
+		}
+		&.xl3 {
+			width: $__col__3;
+		}
+		&.xl2 {
+			width: $__col__2;
+		}
+		&.xl1 {
+			width: $__col__1;
+		}
+
+	}	
+}
+.colEmpty {
+    flex: 1 0 0%;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+.col-auto {
+	flex: 0 0 auto;
+	width: $__auto;
+}
+.row>* {
+	padding-left: 12px;
+	padding-right: 12px;
+}
+// .row {	
+// 	.col.m3 {
+// 		margin-left: $__inherit;
+// 	}
+// 	.col.s6 {
+// 		margin-left: $__inherit;
+// 	}
+// }
+.filter-row {	
+	.col.m3 {
+		margin-left: $__auto;
+	}
+	.col.s6 {
+		margin-left: $__auto;
+	}
+}
+
+.form-group.row {
+	.col.l3 {
+		margin-left: $__zero;
+	}
+	.col.l7 {
+		margin-left: $__zero;
+	}
+}
+
+//row
+.row {
+    margin-left: -12px;
+    margin-right: -12px;
+    margin-bottom: $__zero;
+    @extend %equal-heights;
+
+}
+@include respond-below(custom991) {
+
+	.filter-row {
+		margin-bottom: 15px !important;
+	}
+}
+.col-sm {
+    flex: 1 0 0%;
+}

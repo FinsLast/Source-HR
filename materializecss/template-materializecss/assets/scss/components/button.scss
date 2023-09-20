@@ -1,0 +1,131 @@
+
+%defaultBtn {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    transition: color .15s ease-in-out,
+    background-color .15s ease-in-out,
+    border-color .15s ease-in-out,
+    box-shadow .15s ease-in-out;
+    box-shadow: none;
+}
+.btn-group-sm>.btn, .btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: .875rem;
+    border-radius: 0.2rem;
+}
+.btn, .btn-large, .btn-small {
+    letter-spacing: $__zero;
+    text-transform: $__none;
+    height: $__auto;
+}
+.btn:hover, .btn-large:hover, .btn-small:hover,
+.btn:focus, .btn-large:focus, .btn-small:focus, .btn-floating:focus {
+    background-color: $__primarycolor;
+    box-shadow: $__none;
+}
+.btn-outline-success:hover {
+    color: #fff;
+}
+.btn-group>.btn-group:not(:last-child)>.btn, .btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
+    border-top-right-radius: $__zero;
+    border-bottom-right-radius: $__zero;
+}
+.btn-group>.btn-group:not(:first-child)>.btn, .btn-group>.btn:nth-child(n+3), .btn-group>:not(.btn-check)+.btn {
+    border-top-left-radius: $__zero;
+    border-bottom-left-radius: $__zero;
+}
+.input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3), .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) {
+    border-top-right-radius: $__zero;
+    border-bottom-right-radius: $__zero;
+}
+.btn-group>.btn-group:not(:first-child), .btn-group>.btn:not(:first-child) {
+    margin-left: -1px;
+}
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+    border:1px solid $__primarycolor;
+}
+.btn-group-lg>.btn, .btn-lg {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    border-radius: 0.3rem;
+}
+.btn-success {
+    color: #fff;
+}
+.btn-group, .btn-group-vertical {
+    position: $__relative;
+    display: $__inline__flex;
+    vertical-align: $__middle;
+}
+.btn-danger {
+    color: #fff;
+}
+.btn-outline-secondary {
+    color: #6c757d;
+    border-color: #6c757d;
+}
+.btn-outline-secondary:hover {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+.btn-secondary {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+.btn-secondary:hover {
+    color: #fff;
+    background-color: #5c636a;
+    border-color: #565e64;
+}
+button, input, optgroup, select, textarea {
+    margin: $__zero;
+}
+.btn-light:hover {
+    color: #000;
+    background-color: #f9fafb;
+    border-color: #f9fafb;
+}
+.btn-dark {
+    color: #fff;
+    background-color: #212529;
+    border-color: #212529;
+}
+.btn-dark:hover {
+    color: #fff;
+    background-color: #212529;
+    border-color: #212529;
+}
+.btn-link {
+    font-weight: 400;
+    color: #0d6efd;
+    text-decoration: underline;
+}
+.btn-link:hover {
+    font-weight: 400;
+    color: #0d6efd;
+    text-decoration: underline;
+}
+.btn-light {
+    background-color: rgb(248, 249, 250);
+    border-color: rgb(230, 230, 230);
+    color: rgb(166, 166, 166);
+}
+.call-items .btn i {
+    font-size: 24px;
+}

@@ -1,0 +1,53 @@
+body{
+	font-family: $__body__font__family;
+	font-size:$__body__font__size;
+	color:$__secondarycolor;
+	background-color: $__mix__gray;
+	overflow-x: $__hidden;
+	direction: rtl;
+}
+.container{
+	width:$__full__width;
+	max-width:$__container__width;
+	padding-left:$__grid__padding__left;
+	padding-right:$__grid__padding__right;
+	margin:$__margin__auto;
+}
+img {
+	max-width:$__full__width;
+	height: $__auto;
+	vertical-align: $__middle;
+}
+a{
+	text-decoration: $__none;
+    outline: $__none;
+	color:$__sky__blue;
+	cursor: $__pointer;
+	@include transition(all 0.2s ease);
+	&:hover{
+		@include transition(all 0.2s ease);
+	}
+	&:focus {
+		outline: 0;
+	}
+}
+p{
+	margin-bottom:1rem;
+}
+strong{
+	font-weight: $__bold;
+}
+.ck.ck-editor {
+    direction: rtl;
+    position: relative;
+}
+.ck.ck-editor__editable_inline[dir=ltr] {
+	text-align: right !important;
+}
+.ck.ck-reset_all, .ck.ck-reset_all * {
+	text-align: right !important;
+}
+.ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_ne, .ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_se {
+	right: 0 !important;
+	left: auto !important;
+}

@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-orange">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+	<meta name="description" content="Smarthr - Bootstrap Admin Template">
+	<meta name="keywords"
+		content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
+	<meta name="author" content="Dreamguys - Bootstrap Admin Template">
+	<meta name="robots" content="noindex, nofollow">
+	<title>Performance Setting - HRMS admin template</title>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="css/all.min.css" />
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/line-awesome.min.css">
+	<link rel="stylesheet" href="css/custom-forms.css" />
+	<link rel="stylesheet" href="css/index.min.css" />
+
+	<link rel="stylesheet" href="../dist/tailwind-dist.css">
+</head>
+
+<body class="font-CircularStd bg-body dark:bg-swapBody" x-data="{modalOpen:false}" @click.away="modalOpen=false" x-cloak>
+	<div class="main-wrapper">
+
+		<!-- Header -->
+		<header
+			class="fixed left-0 right-0 top-0 bg-gradient-to-r from-[#ff9b44] to-[#fc6075] dark:bg-gradient-to-r dark:from-[#16191c] dark:to-[#16191c] h-[60px] flex items-center border-b border-transparent dark:border-[#2e3840] shadow-header z-[9999]">
+
+			<!-- Logo -->
+			<div
+				class="logo media-max-w-md:max-w-full max-w-[230px] w-full media-max-w-md:absolute px-5 transition-all ease-in-out duration-[0.2s]">
+				<a href="admin-dashboard.html">
+					<img src="images/logo.png" alt="logo" class="w-[40px] h-[40px] mx-auto">
+				</a>
+			</div>
+			<!-- /Logo -->
+
+			<a href="javascript:;" class="media-max-w-md:hidden flex px-[10px]" id="toggle_btn">
+				<span class="bar-icon inline-block w-[21px]">
+					<span class="w-[21px] h-[2px] bg-white dark:bg-swapText mb-[5px] block float-left"></span>
+					<span class="w-[15px] h-[2px] bg-white dark:bg-swapText mb-[5px] block float-left"></span>
+					<span class="w-[21px] h-[2px] bg-white dark:bg-swapText block float-left"></span>
+				</span>
+			</a>
+
+			<!-- Header Title -->
+			<div class="px-5 media-max-w-lg:hidden">
+				<h3 class="text-[20px] font-normal text-white dark:text-swapText leading-[1.2]">Dreamguy's Technologies</h3>
+			</div>
+			<!-- /Header Title -->
+
+			<a id="mobile_btn"
+				class="media-min-w-md:hidden px-5 w-[60px] h-[60px] leading-[60px] absolute top-0 left-0 text-white text-2xl"
+				href="#sidebar"><i class="fa fa-bars"></i></a>
+
+			<!-- Header Menu -->
+			<div class="ml-auto">
+				<ul class="top-nav hidden sm:flex items-center">
+
+					<!-- Search -->
+					<li>
+						<div class="relative" x-data="{mobSearch:false}">
+							<a href="javascript:void(0);"
+								class="media-min-w-md:hidden inline-block h-[60px] leading-[60px] text-white text-xl sm:px-[10px] md:px-[15px] responsive-search"
+								@click="mobSearch = ! mobSearch">
+								<i class="fa fa-search"></i>
+							</a>
+							<form x-show="mobSearch" action="javascript:;"
+								class="flex items-center w-[230px] absolute left-0 mt-[10px] z-50">
+								<input
+									class="bg-white w-full h-[40px] py-[10px] pl-[15px] pr-[50px] border border-[#e3e3e3] rounded-[50px] text-[#333333] placeholder:text-blackOverlay outline-none focus:outline-none"
+									type="text" placeholder="Search here">
+								<button class="flex absolute right-3" type="submit">
+									<i class="fa fa-search text-[#333333]"></i>
+								</button>
+							</form>
+							<form action="javascript:;"
+								class=" media-max-w-md:hidden flex items-center w-[230px] relative">
+								<input
+									class="bg-searchbg !border-transparent focus:ring-0 w-full h-[40px] py-[10px] pl-[15px] pr-[50px] rounded-[50px] text-white placeholder:text-whiteOpacity outline-none focus:outline-none"
+									type="text" placeholder="Search here">
+								<button class="flex absolute right-3" type="submit">
+									<i class="fa fa-search text-whiteOpacity"></i>
+								</button>
+							</form>
+						</div>
+					</li>
+					<!-- /Search -->
+
+					<!-- Flag -->
+					<li class="relative" x-data="{transLang:false}" @click.away="transLang=false">
+						<a href="javascript:;"
+							class="dark:text-swapText dark:text-swapText sm:px-[10px] md:px-[15px] text-white flex items-center h-[60px] hover:bg-blackOpacity focus:bg-blackOpacity after:media-max-w-md:hidden after:content-['\f107'] after:font-FontAwesome after:pl-[5px] after:text-[20px] after:transition-all after:ease-in-out after:duration-[0.2s]"
+							:class="{'after:rotate-180 after:pl-[0px] after:pr-[5px]':transLang === true, 'after:rotate-0': transLang === false}"
+							@click="transLang = ! transLang"><img src="images/flags/us.png"
+								class="w-5 h-5 media-max-w-md:mr-0 mr-2" alt=""><span
+								class="media-max-w-md:hidden leading-[60px]">English</span></a>
+						<div x-show="transLang"
+							class="py-2 bg-white absolute left-0 right-0 border border-dropdownBorder shadow rounded-sm min-w-[120px] max-h-[150px] overflow-y-auto z-50">
+							<a href="javascript:;" @click.prevent="transLang=false"
+								class="px-3 py-1 flex items-center text-[13px] hover:text-dropdownColor hover:bg-dropdownhoverColor"><img
+									src="images/flags/us.png" class="w-4 h-4 mr-2" alt="">English</a>
+							<a href="javascript:;" @click.prevent="transLang=false"
+								class="px-3 py-1 flex items-center text-[13px] hover:text-dropdownColor hover:bg-dropdownhoverColor"><img
+									src="images/flags/fr.png" class="w-4 h-4 mr-2" alt="">French</a>
+							<a href="javascript:;" @click.prevent="transLang=false"
+								class="px-3 py-1 flex items-center text-[13px] hover:text-dropdownColor hover:bg-dropdownhoverColor"><img
+									src="images/flags/es.png" class="w-4 h-4 mr-2" alt="">Spanish</a>
+							<a href="javascript:;" @click.prevent="transLang=false"
+								class="px-3 py-1 flex items-center text-[13px] hover:text-dropdownColor hover:bg-dropdownhoverColor"><img
+									src="images/flags/de.png" class="w-4 h-4 mr-2" alt="">German</a>
+						</div>
+					</li>
+										<!-- /Flag -->
+
+					<!-- Light & Dark Mode -->
+					<a id="theme-toggle" href="javascript:;" class="text-gray-500 mx-1 bg-btnControls ring-0 outline-offset-0 focus:ring-0 dark:text-gray-400 border-0 appearance-none focus:outline-none rounded-lg text-sm p-2.5">
+						<svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+						<svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+					</a>				
+					<!-- /Light & Dark Mode	 -->
+
+					<!-- Notifications -->
+					<li class="relative" x-data="{notify:false}" @click.away="notify=false">
+						<a href="javascript:;"
+							class="sm:px-[10px] md:px-[15px] text-white dark:text-swapText flex items-center h-[60px] hover:bg-blackOpacity focus:bg-blackOpacity"
+							@click="notify = ! notify"><i class="fa fa-bell-o relative text-xl"></i><span
+								class="bg-countBubble dark:bg-[#fc6075] w-5 h-5 flex items-center text-xs justify-center font-semibold text-white rounded-full absolute top-[6px] right-[3px]">3</span></a>
+						<div x-show="notify"
+							class="bg-white absolute right-0 border border-dropdownBorder shadow rounded-sm min-w-[10rem] z-50">
+							<div
+								class="h-8 leading-8 px-3 flex items-center justify-between border-b border-dropdownBorderBtm">
+								<span class="text-sm block text-[#333333]">Notifications</span>
+								<a href="javascript:void(0)" class="text-[#f83f37] text-[11px] uppercase"> Clear All
+								</a>
+							</div>
+							<div class="w-[350px] h-[290px] overflow-y-auto">
+								<ul>
+									<li class="border-b border-dropdownBorderBtm">
+										<a href="activities.html" class="block p-3 rounded-sm">
+											<div class="flex">
+												<span class="w-[38px] shrink-0 mr-[10px]">
+													<img alt="" src="images/profiles/avatar-02.jpg"
+														class="w-full rounded-full">
+												</span>
+												<div class="grow">
+													<p class="dark:text-swapText text-notiDetails text-[13px]"><span
+															class="text-notiTitle">John Doe</span> added new task <span
+															class="text-notiTitle">Patient appointment booking</span>
+													</p>
+													<p class="dark:text-swapText text-notiTime text-xs"><span>4 mins ago</span></p>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="border-b border-dropdownBorderBtm">
+										<a href="activities.html" class="block p-3 rounded-sm">
+											<div class="flex">
+												<span class="w-[38px] shrink-0 mr-[10px]">
+													<img alt="" src="images/profiles/avatar-03.jpg"
+														class="w-full rounded-full">
+												</span>
+												<div class="grow">
+													<p class="dark:text-swapText text-notiDetails text-[13px]"><span
+															class="text-notiTitle">Tarah Shropshire</span> changed the
+														task name <span class="text-notiTitle">Appointment booking with
+															payment gateway</span></p>
+													<p class="dark:text-swapText text-notiTime text-xs"><span>6 mins ago</span></p>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="border-b border-dropdownBorderBtm">
+										<a href="activities.html" class="block p-3 rounded-sm">
+											<div class="flex">
+												<span class="w-[38px] shrink-0 mr-[10px]">
+													<img alt="" src="images/profiles/avatar-06.jpg"
+														class="w-full rounded-full">
+												</span>
+												<div class="grow">
+													<p class="dark:text-swapText text-notiDetails text-[13px]"><span
+															class="text-notiTitle">Misty Tison</span> added <span
+															class="text-notiTitle">Domenic Houston</span> and <span
+															class="noti-title">Claire Mapes</span> to project <span
+															class="noti-title">Doctor available module</span></p>
+													<p class="dark:text-swapText text-notiTime text-xs"><span>8 mins ago</span></p>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="border-b border-dropdownBorderBtm">
+										<a href="activities.html" class="block p-3 rounded-sm">
+											<div class="flex">
+												<span class="w-[38px] shrink-0 mr-[10px]">
+													<img alt="" src="images/profiles/avatar-17.jpg"
+														class="w-full rounded-full">
+												</span>
+												<div class="media-body flex-grow-1">
+													<p class="dark:text-swapText text-notiDetails text-[13px]"><span
+															class="text-notiTitle">Rolland Webber</span> completed task
+														<span class="text-notiTitle">Patient and Doctor video
+															conferencing</span></p>
+													<p class="dark:text-swapText text-notiTime text-xs"><span>12 mins ago</span></p>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="activities.html" class="block p-3 rounded-sm">
+											<div class="flex">
+												<span class="w-[38px] shrink-0 mr-[10px]">
+													<img alt="" src="images/profiles/avatar-13.jpg"
+														class="w-full rounded-full">
+												</span>
+												<div class="grow">
+													<p class="dark:text-swapText text-notiDetails text-[13px]"><span
+															class="text-notiTitle">Bernardo Galaviz</span> added new
+														task <span class="text-notiTitle">Private chat module</span></p>
+													<p class="dark:text-swapText text-notiTime text-xs"><span>2 days ago</span></p>
+												</div>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div
+								class="border border-dropdownBorderBtm h-8 leading-8 px-3 flex items-center justify-center">
+								<a href="activities.html" class="text-xs block text-[#333333]">View all
+									Notifications</a>
+							</div>
+						</div>
+					</li>
+					<!-- /Notifications -->
+
+					<!-- Message Notifications -->
+					<li class="relative" x-data="{notify:false}" @click.away="notify=false">
+						<a href="javascript:;"
+							class="sm:px-[10px] md:px-[15px] text-white dark:text-swapText flex items-center h-[60px] hover:bg-blackOpacity focus:bg-blackOpacity"
+							@click="notify = ! notify"><i class="fa fa-comment-o relative text-xl"></i><span
+								class="bg-countBubble dark:bg-[#fc6075] w-5 h-5 flex items-center text-xs justify-center font-semibold text-white rounded-full absolute top-[6px] right-[3px]">3</span></a>
+						<div x-show="notify"
+							class="bg-white absolute right-0 border border-dropdownBorder shadow rounded-sm min-w-[10rem] z-50">
+							<div
+								class="h-8 leading-8 px-3 flex items-center justify-between border-b border-dropdownBorderBtm">
+								<span class="text-sm block text-[#333333]">Notifications</span>
+								<a href="javascript:void(0)" class="text-[#f83f37] text-[11px] uppercase"> Clear All
+								</a>
+							</div>
+							<div class="w-[350px] h-[290px] overflow-y-auto">
+								<ul>
+									<li class="border-b border-dropdownBorderBtm">
+										<a href="chat.html" class="block p-3 rounded-sm">
+											<div class="relative">
+												<div class="absolute w-[48px] h-[48px]">
+													<span class="inline-block w-[38px] h-[38px] mr-[10px]">
+														<img alt="" src="images/profiles/avatar-09.jpg"
+															class="w-full rounded-full">
+													</span>
+												</div>
+												<div class="pl-[50px] pr-0 py-0">
+													<span
+														class="text-[13px] text-[#333333] font-medium w-[175px] block float-left max-w-full overflow-hidden text-ellipsis whitespace-nowrap">Richard
+														Miles </span>
+													<span class="text-[#666666] text-[11px] float-right">12:28 AM</span>
+													<div class="clear-both"></div>
+													<span
+														class="text-[13px] text-[#333333] block max-w-full overflow-hidden text-ellipsis whitespace-nowrap">Lorem
+														ipsum dolor sit amet, consectetur adipiscing</span>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="border-b border-dropdownBorderBtm">
+										<a href="chat.html" class="block p-3 rounded-sm">
+											<div class="relative">
+												<div class="absolute w-[48px] h-[48px]">
+													<span class="inline-block w-[38px] h-[38px] mr-[10px]">
+														<img alt="" src="images/profiles/avatar-02.jpg"
+															class="w-full rounded-full">
+													</span>
+												</div>
+												<div class="pl-[50px] pr-0 py-0">
+													<span
+														class="text-[13px] text-[#333333] font-medium w-[175px] block float-left max-w-full overflow-hidden text-ellipsis whitespace-nowrap">John
+														Doe</span>
+													<span class="text-[#666666] text-[11px] float-right">6 Mar</span>
+													<div class="clear-both"></div>
+													<span
+														class="text-[13px] text-[#333333] block max-w-full overflow-hidden text-ellipsis whitespace-nowrap">Lorem
+														ipsum dolor sit amet, consectetur adipiscing</span>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="border-b border-dropdownBorderBtm">
+										<a href="chat.html" class="block p-3 rounded-sm">
+											<div class="relative">
+												<div class="absolute w-[48px] h-[48px]">
+													<span class="inline-block w-[38px] h-[38px] mr-[10px]">
+														<img alt="" src="images/profiles/avatar-03.jpg"
+															class="w-full rounded-full">
+													</span>
+												</div>
+												<div class="pl-[50px] pr-0 py-0">
+													<span
+														class="text-[13px] text-[#333333] font-medium w-[175px] block float-left max-w-full overflow-hidden text-ellipsis whitespace-nowrap">Tarah
+														Shropshire </span>
+													<span class="text-[#666666] text-[11px] float-right">5 Mar</span>
+													<div class="clear-both"></div>
+													<span
+														class="text-[13px] text-[#333333] block max-w-full overflow-hidden text-ellipsis whitespace-nowrap">Lorem
+														ipsum dolor sit amet, consectetur adipiscing</span>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="border-b border-dropdownBorderBtm">
+										<a href="chat.html" class="block p-3 rounded-sm">
+											<div class="relative">
+												<div class="absolute w-[48px] h-[48px]">
+													<span class="inline-block w-[38px] h-[38px] mr-[10px]">
+														<img alt="" src="images/profiles/avatar-05.jpg"
+															class="w-full rounded-full">
+													</span>
+												</div>
+												<div class="pl-[50px] pr-0 py-0">
+													<span
+														class="text-[13px] text-[#333333] font-medium w-[175px] block float-left max-w-full overflow-hidden text-ellipsis whitespace-nowrap">Mike
+														Litorus</span>
+													<span class="text-[#666666] text-[11px] float-right">3 Mar</span>
+													<div class="clear-both"></div>
+													<span
+														class="text-[13px] text-[#333333] block max-w-full overflow-hidden text-ellipsis whitespace-nowrap">Lorem
+														ipsum dolor sit amet, consectetur adipiscing</span>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="border-b border-dropdownBorderBtm">
+										<a href="chat.html" class="block p-3 rounded-sm">
+											<div class="relative">
+												<div class="absolute w-[48px] h-[48px]">
+													<span class="inline-block w-[38px] h-[38px] mr-[10px]">
+														<img alt="" src="images/profiles/avatar-08.jpg"
+															class="w-full rounded-full">
+													</span>
+												</div>
+												<div class="pl-[50px] pr-0 py-0">
+													<span
+														class="text-[13px] text-[#333333] font-medium w-[175px] block float-left max-w-full overflow-hidden text-ellipsis whitespace-nowrap">Catherine
+														Manseau </span>
+													<span class="text-[#666666] text-[11px] float-right">27 Feb</span>
+													<div class="clear-both"></div>
+													<span
+														class="text-[13px] text-[#333333] block max-w-full overflow-hidden text-ellipsis whitespace-nowrap">Lorem
+														ipsum dolor sit amet, consectetur adipiscing</span>
+												</div>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div
+								class="border border-dropdownBorderBtm h-8 leading-8 px-3 flex items-center justify-center">
+								<a href="chat.html" class="text-xs block text-[#333333]">View all Messages</a>
+							</div>
+						</div>
+					</li>
+					<!-- /Message Notifications -->
+
+<li class="relative" x-data="{profile:false}" @click.away="profile=false">
+						<a href="javascript:;" class="sm:px-[10px] md:px-[15px] text-white dark:text-swapText flex items-center h-[60px] hover:bg-blackOpacity focus:bg-blackOpacity after:media-max-w-md:hidden after:content-['\f107'] after:font-FontAwesome after:pl-[5px] after:text-[20px] after:transition-all after:ease-in-out after:duration-[0.2s]" :class="{'after:rotate-180 after:pl-[0px] after:pr-[5px]':profile === true, 'after:rotate-0': profile === false}" @click="profile = ! profile">
+							<div class="inline-block relative leading-[60px] h-[60px] media-min-w-md:mr-2"><img src="images/profiles/avatar-21.jpg" class="inline-block w-[30px] h-[30px] rounded-full" alt=""><span class="w-[10px] h-[10px] bg-statusOnline rounded-full border-2 border-white absolute right-0 bottom-3"></span></div><span class="media-max-w-md:hidden text-[15px] leading-[60px]">Admin</span></a>
+						<div x-show="profile" class="py-2 bg-white absolute right-0 border border-dropdownBorder shadow rounded-sm min-w-[130px] max-h-[150px] overflow-y-auto z-50"> 
+							<a href="profile.html" class="px-3 py-1 flex items-center text-[13px] capitalize hover:text-dropdownColor hover:bg-dropdownhoverColor">my profile</a>
+							<a href="settings.html" class="px-3 py-1 flex items-center text-[13px] capitalize hover:text-dropdownColor hover:bg-dropdownhoverColor">settings</a>
+							<a href="index.html" class="px-3 py-1 flex items-center text-[13px] capitalize hover:text-dropdownColor hover:bg-dropdownhoverColor">logout</a>
+						</div>
+					</li>
+				</ul>
+				<!-- /Header Menu -->
+
+				<!-- Mobile Menu -->
+				<div class="block sm:hidden relative" x-data="{profile:false}" @click.away="profile=false">
+					<a href="javascript:;" class="text-white flex items-center h-[60px] px-5"
+						@click="profile = ! profile"><i class="fa fa-ellipsis-v text-2xl"></i></a>
+					<div class="py-2 bg-white absolute right-0 media-max-w-xs:right-[18px] border border-dropdownBorder shadow rounded-sm min-w-[120px] max-h-[150px] overflow-y-auto z-50"
+						x-show="profile">
+						<a 
+							class="px-3 py-1 flex items-center text-[13px] capitalize hover:text-dropdownColor hover:bg-dropdownhoverColor"
+							href="profile.html">My Profile</a>
+						<a 
+							class="px-3 py-1 flex items-center text-[13px] capitalize hover:text-dropdownColor hover:bg-dropdownhoverColor"
+							href="settings.html">Settings</a>
+						<a class="px-3 py-1 flex items-center text-[13px] capitalize hover:text-dropdownColor hover:bg-dropdownhoverColor"
+							href="index.html">Logout</a>
+					</div>
+				</div>
+				<!-- /Mobile Menu -->
+
+			</div>
+		</header>
+		<!-- /Header -->
+
+		<!-- Sidebar -->
+		<div class="sidebar bg-sidebar dark:bg-swapBg media-max-w-md:-ml-[225px] media-max-w-md:w-[225px] transition-all ease-in-out duration-[0.2s] w-[230px] fixed top-[60px] bottom-0 left-0 py-[10px] z-[401]"
+			id="sidebar">
+			<div class="h-full pb-5 scrollbar-thin scrollbar-thumb-scrollbar scroll">
+				<div id="sidebar-menu" class="sidebar-menu">
+					<ul>
+						<li>
+							<a href="admin-dashboard.html"><i class="la la-home"></i> <span>Back to Home</span></a>
+						</li>
+						<li class="menu-title">Settings</li>
+						<li>
+							<a href="settings.html"><i class="la la-building"></i> <span>Company Settings</span></a>
+						</li>
+						<li>
+							<a href="localization.html"><i class="la la-clock-o"></i> <span>Localization</span></a>
+						</li>
+						<li>
+							<a href="theme-settings.html"><i class="la la-photo"></i> <span>Theme Settings</span></a>
+						</li>
+						<li>
+							<a href="roles-permissions.html"><i class="la la-key"></i> <span>Roles &
+									Permissions</span></a>
+						</li>
+						<li>
+							<a href="email-settings.html"><i class="la la-at"></i> <span>Email Settings</span></a>
+						</li>
+						<li class="active">
+							<a href="performance-setting.html"><i class="la la-chart-bar"></i> <span>Performance
+									Settings</span></a>
+						</li>
+						<li>
+							<a href="approval-setting.html"><i class="la la-thumbs-up"></i> <span>Approval
+									Settings</span></a>
+						</li>
+						<li>
+							<a href="invoice-settings.html"><i class="la la-pencil-square"></i> <span>Invoice
+									Settings</span></a>
+						</li>
+						<li>
+							<a href="salary-settings.html"><i class="la la-money"></i> <span>Salary Settings</span></a>
+						</li>
+						<li>
+							<a href="notifications-settings.html"><i class="la la-globe"></i>
+								<span>Notifications</span></a>
+						</li>
+						<li>
+							<a href="change-password.html"><i class="la la-lock"></i> <span>Change Password</span></a>
+						</li>
+						<li>
+							<a href="leave-type.html"><i class="la la-cogs"></i> <span>Leave Type</span></a>
+						</li>
+						<li>
+							<a href="toxbox-setting.html"><i class="la la-comment"></i> <span>ToxBox Settings</span></a>
+						</li>
+						<li>
+							<a href="cron-setting.html"><i class="la la-rocket"></i> <span>Cron Settings</span></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- /Sidebar -->
+
+		<!-- Page Wrapper -->
+		<div class="page-wrapper flex-1 relative left-0 pt-[60px] media-min-w-md:ml-[230px]">
+			<div class="p-[15px] sm:p-[30px]">
+				<div class="page-header">
+					<div class="flex items-center">
+						<div>
+							<h3
+								class="text-pageTitle dark:text-swapText text-lg sm:text-2xl md:text-[26px] font-medium sm:mb-[5px] leading-[1.2]">
+								Performance Configuration
+								<button class="btn-sm bg-success hover:bg-successHover text-white" type="submit">OKRs
+									Activated</button>
+							</h3>
+							<p class="dark:text-swapText mb-4"><b>Click the tabs below for more information on each Performance Management
+									module.
+									Only one Performance module can be activated at a time.
+								</b>
+						</div>
+					</div>
+				</div>
+
+				<div x-data="{tab: 'okrs'}">
+					<div class="rounded relative flex flex-col">
+						<ul
+							class="flex flex-wrap items-center border-b border-pagination media-max-w-sm:bg-white media-max-w-sm:border media-max-w-sm:border-[#dddddd] dark:border-swapBorderPrimary media-max-w-sm:rounded-[3px] media-max-w-sm:py-[5px]">
+							<li class="inline-block media-max-w-sm:-mb-[1px]"><a href="javascript:;"
+									class="block px-4 py-2 media-max-w-sm:text-sm media-max-w-sm:border-l-2 md:border-b-2 md:-mb-[1px] border-transparent pb-2 text-center text-[#888888]"
+									:class="{ 'active': tab === 'okrs', 'border-primary media-max-w-sm:bg-[#f5f5f5] text-[#495057] dark:text-white': tab === 'okrs' }"
+									x-on:click.prevent="tab = 'okrs'">OKRs</a></li>
+							<li class="inline-block media-max-w-sm:-mb-[1px]"><a href="javascript:;"
+									class="block px-4 py-2 media-max-w-sm:text-sm media-max-w-sm:border-l-2 md:border-b-2 md:-mb-[1px] border-transparent pb-2 text-center text-[#888888]"
+									:class="{ 'active': tab === 'Cbased', 'border-primary media-max-w-sm:bg-[#f5f5f5]': tab === 'Cbased', 'text-[#495057] dark:text-white': tab === 'Cbased' }"
+									x-on:click.prevent="tab = 'Cbased'">Competency-based</a></li>
+							<li class="inline-block media-max-w-sm:-mb-[1px]"><a href="javascript:;"
+									class="block px-4 py-2 media-max-w-sm:text-sm media-max-w-sm:border-l-2 md:border-b-2 md:-mb-[1px] border-transparent pb-2 text-center text-[#888888]"
+									:class="{ 'active': tab === 'Sgoals', 'border-primary media-max-w-sm:bg-[#f5f5f5]': tab === 'Sgoals', 'text-[#495057] dark:text-white': tab === 'Sgoals' }"
+									x-on:click.prevent="tab = 'Sgoals'">SMART Goals</a></li>
+						</ul>
+					</div>
+					<div class="pt-4">
+						<div x-show="tab === 'okrs'">
+							<div class="mb-4">
+								<label>OKRs Description</label>
+								<textarea rows="5" cols="5" class="w-full textareaStyle dark:bg-swapInput dark:text-swapText dark:border-transparent"
+									name="description">Objectives and Key Results (OKR) is a framework for defining and tracking organizations objectives and their outcomes. OKRs comprise an Objective—a clearly defined goal—and one or more Key Results—specific measures used to track the achievement of that goal. The goal of OKR is to define how to achieve objectives through concrete, specific and measurable actions. Key Results can be measured on a sliding scale from 0.0 - 1.0 or 0-100%. Objectives should also be supported by initiatives, which are the plans and activities that help to achieve the objective and move forward the key results. Once objectives and key results have been established, regular and quarterly check-ins are required to make sure OKRs is progressing</textarea>
+							</div>
+							<div class="flex justify-center mt-4">
+								<span class="inline-block mr-1">
+									<span>
+										<a href="javascript:;"
+											class="bg-[#ad0d20] text-white rounded inline-flex justify-center items-center w-[50px] h-[50px] text-lg font-semibold mb-[5px]">0.0</a>
+										<a href="javascript:;"
+											class="bg-[#ad0d20] text-white rounded inline-flex justify-center items-center w-[50px] h-[50px] text-lg font-semibold mb-[5px]">0.1</a>
+										<a href="javascript:;"
+											class="bg-[#ad0d20] text-white rounded inline-flex justify-center items-center w-[50px] h-[50px] text-lg font-semibold mb-[5px]">0.2</a>
+										<a href="javascript:;"
+											class="bg-[#ad0d20] text-white rounded inline-flex justify-center items-center w-[50px] h-[50px] text-lg font-semibold mb-[5px]">0.3</a>
+									</span><br>
+									<span class="text-xs max-w-[157px] inline-block mt-[5px]">We failed to make real
+										progress</span>
+								</span>
+								<span class="inline-block mr-1 text-center">
+									<span>
+										<a href="javascript:;"
+											class="bg-[#dccc00] text-white rounded inline-flex justify-center items-center w-[50px] h-[50px] text-lg font-semibold mb-[5px]">0.4</a>
+										<a href="javascript:;"
+											class="bg-[#dccc00] text-white rounded inline-flex justify-center items-center w-[50px] h-[50px] text-lg font-semibold mb-[5px]">0.5</a>
+										<a href="javascript:;"
+											class="bg-[#dccc00] text-white rounded inline-flex justify-center items-center w-[50px] h-[50px] text-lg font-semibold mb-[5px]">0.6</a>
+									</span><br>
+									<span class="text-xs max-w-[157px] inline-block mt-[5px]">We made progress, but fell
+										short of completion</span>
+								</span>
+								<span class="inline-block text-right">
+									<span>
+										<a href="javascript:;"
+											class="bg-[#00a100] text-white rounded inline-flex justify-center items-center w-[50px] h-[50px] text-lg font-semibold mb-[5px]">0.7</a>
+										<a href="javascript:;"
+											class="bg-[#00a100] text-white rounded inline-flex justify-center items-center w-[50px] h-[50px] text-lg font-semibold mb-[5px]">0.8</a>
+										<a href="javascript:;"
+											class="bg-[#00a100] text-white rounded inline-flex justify-center items-center w-[50px] h-[50px] text-lg font-semibold mb-[5px]">0.9</a>
+										<a href="javascript:;"
+											class="bg-[#00a100] text-white rounded inline-flex justify-center items-center w-[50px] h-[50px] text-lg font-semibold mb-[5px]">1.0</a>
+									</span><br>
+									<span class="text-xs max-w-[157px] inline-block mt-[5px]">We delivered</span>
+
+								</span>
+							</div>
+							<div class="text-center my-4">
+								<button class="submit-btn">Activate OKR</button>
+							</div>
+							<hr class="my-4 border-black opacity-25">
+
+							<div class="flex flex-wrap mb-4">
+								<p class="dark:text-swapText block w-full">Choose Your Rating Scale</p>
+								<div>
+									<label class="inline-flex items-center" for="phpmail">
+										<input type="radio" class="form-radio border border-[rgb(0,0,0,0.25)]"
+											name="mailoption" value="option1">
+										<span class="dark:text-swapText ml-2">0.1 - 1.0</span>
+									</label>
+									<label class="inline-flex items-center ml-4" for="smtpmail">
+										<input type="radio" class="form-radio border border-[rgb(0,0,0,0.25)]"
+											name="mailoption" value="option2">
+										<span class="dark:text-swapText ml-2">1 - 5</span>
+									</label>
+									<label class="inline-flex items-center ml-4" for="smtpmail">
+										<input type="radio" class="form-radio border border-[rgb(0,0,0,0.25)]"
+											name="mailoption" value="option2">
+										<span class="dark:text-swapText ml-2">1 - 10</span>
+									</label>
+									<label class="inline-flex items-center ml-4" for="smtpmail">
+										<input type="radio" class="form-radio border border-[rgb(0,0,0,0.25)]"
+											name="mailoption" value="option2">
+										<span class="dark:text-swapText ml-2">Custom</span>
+									</label>
+								</div>
+							</div>
+
+							<div class="whitespace-nowrap overflow-x-auto w-full col-span-4">
+								<table class="table row-bordered dark:text-swapText custom-table-xs w-full">
+									<thead>
+										<tr class="text-left !border-t-0">
+											<th>Rating</th>
+											<th>Short Descriptive Word</th>
+											<th>Definition</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="w-[50px]"> 0.1 </td>
+											<td class="w-[300px]">
+												<input type="hidden" name="rating_no[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="0.1">
+												<input type="text" name="rating_value_ten[]" class="inputStyle dark:bg-swapInput dark:border-swapBorderPrimary w-full"
+													value="dsdsd" placeholder="Short word to describe rating of 0.1"
+													required="">
+											</td>
+											<td>
+												<textarea rows="3" name="definition_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													placeholder="Descriptive Rating Definition"
+													required="">dfsdfa</textarea>
+											</td>
+										</tr>
+										<tr>
+											<td class="w-[50px]"> 0.2 </td>
+											<td class="w-[300px]">
+												<input type="hidden" name="rating_no[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="0.2">
+												<input type="text" name="rating_value_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="sdfdsf" placeholder="Short word to describe rating of 0.2"
+													required="">
+											</td>
+											<td>
+												<textarea rows="3" name="definition_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													placeholder="Descriptive Rating Definition"
+													required="">sdfdsf</textarea>
+											</td>
+										</tr>
+										<tr>
+											<td class="w-[50px]"> 0.3 </td>
+											<td class="w-[300px]">
+												<input type="hidden" name="rating_no[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="0.3">
+												<input type="text" name="rating_value_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="sdfds" placeholder="Short word to describe rating of 0.3"
+													required="">
+											</td>
+											<td>
+												<textarea rows="3" name="definition_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													placeholder="Descriptive Rating Definition"
+													required="">fsdf</textarea>
+											</td>
+										</tr>
+										<tr>
+											<td class="w-[50px]"> 0.4 </td>
+											<td class="w-[300px]">
+												<input type="hidden" name="rating_no[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="0.4">
+												<input type="text" name="rating_value_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="sdfds" placeholder="Short word to describe rating of 0.4"
+													required="">
+											</td>
+											<td>
+												<textarea rows="3" name="definition_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													placeholder="Descriptive Rating Definition"
+													required="">fsdf</textarea>
+											</td>
+										</tr>
+										<tr>
+											<td class="w-[50px]"> 0.5 </td>
+											<td class="w-[300px]">
+												<input type="hidden" name="rating_no[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="0.5">
+												<input type="text" name="rating_value_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="sdfdsf" placeholder="Short word to describe rating of 0.5"
+													required="">
+											</td>
+											<td>
+												<textarea rows="3" name="definition_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													placeholder="Descriptive Rating Definition"
+													required="">sdf</textarea>
+											</td>
+										</tr>
+										<tr>
+											<td class="w-[50px]"> 0.6 </td>
+											<td class="w-[300px]">
+												<input type="hidden" name="rating_no[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="0.6">
+												<input type="text" name="rating_value_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="sdfds" placeholder="Short word to describe rating of 0.6"
+													required="">
+											</td>
+											<td>
+												<textarea rows="3" name="definition_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													placeholder="Descriptive Rating Definition"
+													required="">fsdsdf</textarea>
+											</td>
+										</tr>
+										<tr>
+											<td class="w-[50px]"> 0.7 </td>
+											<td class="w-[300px]">
+												<input type="hidden" name="rating_no[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="0.7">
+												<input type="text" name="rating_value_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="dsfd" placeholder="Short word to describe rating of 0.7"
+													required="">
+											</td>
+											<td>
+												<textarea rows="3" name="definition_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													placeholder="Descriptive Rating Definition"
+													required="">fsdf</textarea>
+											</td>
+										</tr>
+										<tr>
+											<td class="w-[50px]"> 0.8 </td>
+											<td class="w-[300px]">
+												<input type="hidden" name="rating_no[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="0.8">
+												<input type="text" name="rating_value_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="sdfsdf" placeholder="Short word to describe rating of 0.8"
+													required="">
+											</td>
+											<td>
+												<textarea rows="3" name="definition_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													placeholder="Descriptive Rating Definition"
+													required="">sdfds</textarea>
+											</td>
+										</tr>
+										<tr>
+											<td class="w-[50px]"> 0.9 </td>
+											<td class="w-[300px]">
+												<input type="hidden" name="rating_no[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="0.9">
+												<input type="text" name="rating_value_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="sdf" placeholder="Short word to describe rating of 0.9"
+													required="">
+											</td>
+											<td>
+												<textarea rows="3" name="definition_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													placeholder="Descriptive Rating Definition"
+													required="">sdfsdsf</textarea>
+											</td>
+										</tr>
+										<tr>
+											<td class="w-[50px]"> 1.0 </td>
+											<td class="w-[300px]">
+												<input type="hidden" name="rating_no[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="1.0">
+												<input type="text" name="rating_value_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="dg" placeholder="Short word to describe rating of 1.0"
+													required="">
+											</td>
+											<td>
+												<textarea rows="3" name="definition_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													placeholder="Descriptive Rating Definition"
+													required="">fg</textarea>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="mt-10 text-center">
+								<button class="submit-btn">Save</button>
+							</div>
+						</div>
+						<div x-show="tab === 'Cbased'">
+
+							<div class="mb-4">
+								<label>Competency-based</label>
+								<textarea rows="4" cols="5" class="w-full textareaStyle dark:bg-swapInput dark:text-swapText dark:border-transparent"
+									name="description">Competency-based performance management allow companies to evaluate employees' performance through define core competencies that align with the company’s mission, vision and goals. A 360-degree assessment can also be added to capture ratings and feedback</textarea>
+							</div>
+							<div class="text-center my-4">
+								<button class="submit-btn">Activate Competency-based</button>
+							</div>
+
+
+							<div class="whitespace-nowrap overflow-x-auto w-full tableStyle">
+								<table class="table bordered  custom-table-xs w-full">
+									<thead style="background:#f2f2f2" class="dark:!bg-swapTable">
+										<tr class="text-left">
+											<th style="width: 250px;">Competency</th>
+											<th>Definition</th>
+											<th style="width: 70px;text-align:center;">Action</th>
+										</tr>
+									</thead>
+									<tbody class="text-left dark:text-swapText">
+										<tr>
+											<th>
+												Adaptability
+											</th>
+											<td>
+												<div class="task-textarea">
+													<textarea placeholder="Definition" id="competency_definition_6"
+														onkeyup="competency_definition(6)"
+														class="border border-transparent rounded-[5px] text-[13px] resize-none bg-[#e9ecef] h-auto px-3 py-[0.375rem] dark:bg-swapInput dark:text-swapText w-full definition_edit_6"
+														readonly="">Ability to handle ambiguity and certain situations outside of their
+														control. Dealing with a change in process, systems, role, and direction of
+														the company. Adapting to new ways of doing things.</textarea>
+												</div>
+											</td>
+											<td class="text-center">
+												<a href="javascript:void(0);" class="text-warning" title=""
+													id="definition_edit_6" onclick="definition_edit(6)"
+													data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+												<a href="https://newhrms.com/newhrms_stagging/settings/delete_performance_competency/6"
+													class="text-danger" title="" data-toggle="ajaxModal"
+													data-original-title="Delete"><i class="fa fa-times"></i></a>
+											</td>
+										</tr>
+										<tr>
+											<th>
+												Collaboration &amp; Teamwork
+											</th>
+											<td>
+												<div class="task-textarea">
+													<textarea placeholder="Definition" id="competency_definition_7"
+														onkeyup="competency_definition(7)"
+														class="border border-transparent rounded-[5px] text-[13px] resize-none bg-[#e9ecef] h-auto px-3 py-[0.375rem] dark:bg-swapInput dark:text-swapText w-full definition_edit_7"
+														readonly="">Works harmoniously with others to get a job done; shares critical information
+														with everyone involved in a project. Works cooperatively with others to achieve
+														common goals. Seeks opinions and values the contributions of others; involves
+														team in discussion and decision-making.</textarea>
+												</div>
+											</td>
+											<td class="text-center">
+												<a href="javascript:void(0);" class="text-warning" title=""
+													id="definition_edit_7" onclick="definition_edit(7)"
+													data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+												<a href="https://newhrms.com/newhrms_stagging/settings/delete_performance_competency/7"
+													class="text-danger" title="" data-toggle="ajaxModal"
+													data-original-title="Delete"><i class="fa fa-times"></i></a>
+											</td>
+										</tr>
+										<tr>
+											<th>
+												Communication
+											</th>
+											<td>
+												<div class="task-textarea">
+													<textarea placeholder="Definition" id="competency_definition_8"
+														onkeyup="competency_definition(8)"
+														class="border border-transparent rounded-[5px] text-[13px] resize-none bg-[#e9ecef] h-auto px-3 py-[0.375rem] dark:bg-swapInput dark:text-swapText w-full definition_edit_8"
+														readonly="">Communicates in an engaging, effective, and respectful way to a wide
+														variety of groups. Delivers convincing and meaningful messages that
+														leave a positive impact. Effective oral and written communication skills.
+														The ability to persuade and convince others including management.</textarea>
+												</div>
+											</td>
+											<td class="text-center">
+												<a href="javascript:void(0);" class="text-warning" title=""
+													id="definition_edit_8" onclick="definition_edit(8)"
+													data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+												<a href="https://newhrms.com/newhrms_stagging/settings/delete_performance_competency/8"
+													class="text-danger" title="" data-toggle="ajaxModal"
+													data-original-title="Delete"><i class="fa fa-times"></i></a>
+											</td>
+										</tr>
+										<tr>
+											<th>
+												Customer Service
+											</th>
+											<td>
+												<div class="task-textarea">
+													<textarea placeholder="Definition" id="competency_definition_9"
+														onkeyup="competency_definition(9)"
+														class="border border-transparent rounded-[5px] text-[13px] resize-none bg-[#e9ecef] h-auto px-3 py-[0.375rem] dark:bg-swapInput dark:text-swapText w-full definition_edit_9"
+														readonly="">Listens and responds effectively to customer questions; resolves
+														customer problems to the customer’s satisfaction; respects all internal
+														and external customers; follows up to evaluate customer satisfaction;
+														exceeds customer expectations.</textarea>
+												</div>
+											</td>
+											<td class="text-center">
+												<a href="javascript:void(0);" class="text-warning" title=""
+													id="definition_edit_9" onclick="definition_edit(9)"
+													data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+												<a href="https://newhrms.com/newhrms_stagging/settings/delete_performance_competency/9"
+													class="text-danger" title="" data-toggle="ajaxModal"
+													data-original-title="Delete"><i class="fa fa-times"></i></a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<div class="whitespace-nowrap overflow-x-auto w-full tableStyle">
+								<form>
+									<table class="table row-bordered custom-table-xs w-full mb-4">
+										<tbody>
+											<tr>
+												<td class="pl-0">
+													<input type="text" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary" name="competency[]"
+														required="" placeholder="Competency">
+												</td>
+												<td>
+													<textarea rows="4" cols="20" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+														name="definition[]" placeholder="Definition"
+														required=""></textarea>
+												</td>
+												<td class="pr-0 min-w-[55px] max-w-[55px] w-[55px]">
+													<button type="button"
+														class="btn bg-white border dark:bg-blackHoverbg dark:text-swapText dark:border-transparent border-btnBorder hover:bg-body w-11 h-11 text-base px-[15px] py-[10px]"
+														data-original-title="Add Competency"><i
+															class="fa fa-plus-circle"></i></button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<div>
+										<button class="btn bg-primary hover:bg-addbtnHover text-white"
+											type="submit">Create Competencies</button>
+									</div>
+								</form>
+							</div>
+							<hr class="my-4 border-black opacity-25">
+
+							<div class="flex flex-wrap mb-4">
+								<p class="dark:text-swapText block w-full">Choose Your Rating Scale</p>
+								<div>
+									<label class="inline-flex items-center ml-4" for="smtpmail">
+										<input type="radio" class="form-radio border border-[rgb(0,0,0,0.25)]"
+											name="mailoption" value="option2">
+										<span class="dark:text-swapText ml-2">1 - 5</span>
+									</label>
+									<label class="inline-flex items-center ml-4" for="smtpmail">
+										<input type="radio" class="form-radio border border-[rgb(0,0,0,0.25)]"
+											name="mailoption" value="option2">
+										<span class="dark:text-swapText ml-2">1 - 10</span>
+									</label>
+									<label class="inline-flex items-center ml-4" for="smtpmail">
+										<input type="radio" class="form-radio border border-[rgb(0,0,0,0.25)]"
+											name="mailoption" value="option2">
+										<span class="dark:text-swapText ml-2">Custom</span>
+									</label>
+								</div>
+							</div>
+
+							<div class="whitespace-nowrap overflow-x-auto w-full tableStyle">
+								<table class="table row-bordered custom-table-xs w-full">
+									<thead>
+										<tr class="text-left !border-t-0">
+											<th>Rating</th>
+											<th>Short Descriptive Word</th>
+											<th>Definition</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="w-[50px]"> 1 </td>
+											<td class="w-[300px]">
+												<input type="hidden" name="rating_no[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="1">
+												<input type="text" name="rating_value_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="tst" placeholder="Short word to describe rating of 0.1"
+													required="">
+											</td>
+											<td>
+												<textarea rows="3" name="definition_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													placeholder="Descriptive Rating Definition"
+													required="">Lorem ipsum</textarea>
+											</td>
+										</tr>
+										<tr>
+											<td class="w-[50px]"> 2 </td>
+											<td class="w-[300px]">
+												<input type="hidden" name="rating_no[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="2">
+												<input type="text" name="rating_value_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="dsgds" placeholder="Short word to describe rating of 0.2"
+													required="">
+											</td>
+											<td>
+												<textarea rows="3" name="definition_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													placeholder="Descriptive Rating Definition"
+													required="">Lorem ipsum</textarea>
+											</td>
+										</tr>
+										<tr>
+											<td class="w-[50px]"> 3 </td>
+											<td class="w-[300px]">
+												<input type="hidden" name="rating_no[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="3">
+												<input type="text" name="rating_value_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="sdg" placeholder="Short word to describe rating of 0.3"
+													required="">
+											</td>
+											<td>
+												<textarea rows="3" name="definition_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													placeholder="Descriptive Rating Definition"
+													required="">Lorem ipsum</textarea>
+											</td>
+										</tr>
+										<tr>
+											<td class="w-[50px]"> 4 </td>
+											<td class="w-[300px]">
+												<input type="hidden" name="rating_no[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="4">
+												<input type="text" name="rating_value_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="sdgsdg" placeholder="Short word to describe rating of 0.4"
+													required="">
+											</td>
+											<td>
+												<textarea rows="3" name="definition_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													placeholder="Descriptive Rating Definition"
+													required="">Lorem ipsum</textarea>
+											</td>
+										</tr>
+										<tr>
+											<td class="w-[50px]"> 5 </td>
+											<td class="w-[300px]">
+												<input type="hidden" name="rating_no[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="5">
+												<input type="text" name="rating_value_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="sdg" placeholder="Short word to describe rating of 0.5"
+													required="">
+											</td>
+											<td>
+												<textarea rows="3" name="definition_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													placeholder="Descriptive Rating Definition"
+													required="">Lorem ipsum</textarea>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="mt-10 text-center">
+									<button class="submit-btn">Save</button>
+								</div>
+							</div>
+						</div>
+						<div x-show="tab === 'Sgoals'">
+
+							<div class="mb-4">
+								<label>Smart Goals Configuration</label>
+								<textarea rows="4" cols="5" class="w-full textareaStyle dark:bg-swapInput dark:text-swapText dark:border-transparent"
+									name="description">A 360-degree assessment can also be added to capture ratings and feedback</textarea>
+							</div>
+							<div class="text-center my-4">
+								<button class="submit-btn">Activate SMART Goals</button>
+							</div>
+
+							<hr class="my-4 border-black opacity-25">
+
+							<div class="flex flex-wrap mb-4">
+								<p class="dark:text-swapText block w-full">Choose Your Rating Scale</p>
+								<div>
+									<label class="inline-flex items-center ml-4" for="smtpmail">
+										<input type="radio" class="form-radio border border-[rgb(0,0,0,0.25)]"
+											name="mailoption" value="option2">
+										<span class="dark:text-swapText ml-2">1 - 5</span>
+									</label>
+									<label class="inline-flex items-center ml-4" for="smtpmail">
+										<input type="radio" class="form-radio border border-[rgb(0,0,0,0.25)]"
+											name="mailoption" value="option2">
+										<span class="dark:text-swapText ml-2">1 - 10</span>
+									</label>
+									<label class="inline-flex items-center ml-4" for="smtpmail">
+										<input type="radio" class="form-radio border border-[rgb(0,0,0,0.25)]"
+											name="mailoption" value="option2">
+										<span class="dark:text-swapText ml-2">Custom</span>
+									</label>
+								</div>
+							</div>
+
+							<div class="whitespace-nowrap overflow-x-auto w-full tableStyle">
+								<table class="table row-bordered custom-table-xs w-full">
+									<thead>
+										<tr class="text-left !border-t-0">
+											<th>Rating</th>
+											<th>Short Descriptive Word</th>
+											<th>Definition</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="w-[50px]"> 1 </td>
+											<td class="w-[300px]">
+												<input type="hidden" name="rating_no[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="1">
+												<input type="text" name="rating_value_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="very bad" placeholder="Short word to describe rating of 0.1"
+													required="">
+											</td>
+											<td>
+												<textarea rows="3" name="definition_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													placeholder="Descriptive Rating Definition"
+													required="">very bad</textarea>
+											</td>
+										</tr>
+										<tr>
+											<td class="w-[50px]"> 2 </td>
+											<td class="w-[300px]">
+												<input type="hidden" name="rating_no[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="2">
+												<input type="text" name="rating_value_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="bad" placeholder="Short word to describe rating of 0.2"
+													required="">
+											</td>
+											<td>
+												<textarea rows="3" name="definition_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													placeholder="Descriptive Rating Definition"
+													required="">bad</textarea>
+											</td>
+										</tr>
+										<tr>
+											<td class="w-[50px]"> 3 </td>
+											<td class="w-[300px]">
+												<input type="hidden" name="rating_no[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="3">
+												<input type="text" name="rating_value_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="Average" placeholder="Short word to describe rating of 0.3"
+													required="">
+											</td>
+											<td>
+												<textarea rows="3" name="definition_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													placeholder="Descriptive Rating Definition"
+													required="">Average</textarea>
+											</td>
+										</tr>
+										<tr>
+											<td class="w-[50px]"> 4 </td>
+											<td class="w-[300px]">
+												<input type="hidden" name="rating_no[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="4">
+												<input type="text" name="rating_value_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="Good" placeholder="Short word to describe rating of 0.4"
+													required="">
+											</td>
+											<td>
+												<textarea rows="3" name="definition_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													placeholder="Descriptive Rating Definition"
+													required="">Good</textarea>
+											</td>
+										</tr>
+										<tr>
+											<td class="w-[50px]"> 5 </td>
+											<td class="w-[300px]">
+												<input type="hidden" name="rating_no[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="5">
+												<input type="text" name="rating_value_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													value="Very Good" placeholder="Short word to describe rating of 0.5"
+													required="">
+											</td>
+											<td>
+												<textarea rows="3" name="definition_ten[]" class="inputStyle w-full dark:bg-swapInput dark:border-swapBorderPrimary"
+													placeholder="Descriptive Rating Definition"
+													required="">Very Good</textarea>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="mt-10 text-center">
+									<button class="submit-btn">Save</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+
+			</div>
+		</div>
+	</div>		<div class="settings-icon fixed right-5 bottom-5 z-[10005]"> 
+			<span id="colorswitch-blk" class="flex items-center justify-center w-[45px] h-[45px] rounded-[50px] cursor-pointer text-white text-2xl animate-colorSwap">
+				<i class="las la-cog"></i>
+			</span> 
+		</div> 
+ 
+		<div class="offcanvas fixed top-0 right-0 bottom-0 offcanvas-end z-[999999] dark:bg-swapBody dark:text-swapText" id="theme-settings-offcanvas"> 
+			<div class="flex justify-between items-center pb-[25px] px-[25px] border-b dark:!border-swapBorderPrimary">
+				<div>
+					<h2 class="text-[25px] mb-2">Customizer</h2>
+					<h3 class="text-[15px]">Customize your overview Page layout</h3>
+				</div>
+				<div class="color-switchclose">
+					<a href="javascript:;"><img src="images/close.png" alt="img"></a>
+				</div>
+			</div>
+			<div class="overflow-y-auto flex-grow"> 
+				<div class="h-full"> 
+					<div>  
+							<div class="p-[25px]">
+								<h5 class="text-base mb-2">Color Scheme</h5>
+								<h6 class="text-sm">Choose Light or Dark Scheme.</h6>
+							</div>
+							<div class="colorscheme-cardradio"> 
+								<div class="flex flex-wrap gap-3 px-[25px]"> 
+									<div>
+										<div class="form-check card-radio p-0"> 
+											<input class="form-check-input cursor-pointer" type="radio" name="data-layout-mode" id="skin-orange" value="orange" checked> 
+											<!-- <label class="form-check-label p-[10px] w-full before:content-['✓'] before:absolute before:top-[40%] before:left-[40%] before:text-[10px] before:bg-[#3BB800] before:font-black before:w-5 before:h-5 before:flex before:items-center before:justify-center before:rounded-full" for="layout-mode-orange">  -->
+												<label class="form-check-label dark:!border-[#ced4da] p-[10px] w-full" for="skin-orange"> 
+												<img src="images/vertical.png" alt="img">
+										</label>
+									</div> 
+									<h5 class="fs-13 text-center mt-2">Orange</h5>
+								</div> 
+								<div>
+									<div class="form-check card-radio p-0"> 
+										<input class="form-check-input" type="radio" name="data-layout-mode" id="skin-light" value="light"> 
+										<label class="form-check-label dark:!border-[#ced4da] p-[10px] w-full" for="skin-light"> 
+											<img src="images/vertical.png" alt="img">
+										</label> 
+									</div> 
+									<h5 class="fs-13 text-center mt-2">Light</h5> 
+								</div> 
+								<div>
+									<div class="form-check card-radio dark  p-0 "> 
+										<input class="form-check-input" type="radio" name="data-layout-mode" id="skin-dark" value="dark"> 
+										<label class="form-check-label dark:!border-[#ced4da] p-[10px] w-full " for="skin-dark"> 
+											<img src="images/vertical.png" alt="img">
+										</label> 
+									</div> 
+									<h5 class="fs-13 text-center mt-2">Dark</h5> 
+								</div> 
+								<div>
+									<div class="form-check card-radio blue  p-0 "> 
+										<input class="form-check-input" type="radio" name="data-layout-mode" id="skin-blue" value="blue"> 
+										<label class="form-check-label dark:!border-[#ced4da] p-[10px] w-full" for="skin-blue"> 
+											<img src="images/vertical.png" alt="img">
+										</label> 
+									</div> 
+									<h5 class="fs-13 text-center mt-2">Blue</h5> 
+								</div> 
+								<div>
+									<div class="form-check card-radio maroon p-0"> 
+										<input class="form-check-input" type="radio" name="data-layout-mode" id="skin-maroon" value="maroon"> 
+										<label class="form-check-label dark:!border-[#ced4da] p-[10px] w-full " for="skin-maroon"> 
+											<img src="images/vertical.png" alt="img">
+										</label> 
+									</div> 
+									<h5 class="fs-13 text-center mt-2">Maroon</h5> 
+								</div> 
+								<div>
+									<div class="form-check card-radio purple p-0"> 
+										<input class="form-check-input" type="radio" name="data-layout-mode" id="skin-purple" value="purple"> 
+										<label class="form-check-label dark:!border-[#ced4da] p-[10px] w-full " for="skin-purple"> 
+											<img src="images/vertical.png" alt="img">
+										</label> 
+									</div> 
+									<h5 class="fs-13 text-center mt-2">Purple</h5> 
+								</div> 	
+							</div> 
+						</div> 
+
+					</div> 
+				</div> 
+
+			</div> 
+			<div class="offcanvas-footer dark:bg-swapBody gap-3 flex justify-between items-center pt-[25px] px-[25px] border-t border-borderBottom dark:!border-swapBorderPrimary"> 
+					<div class="w-full"> 
+						<button type="button" class="btn w-full btn-reset" id="reset-layout">Reset</button> 
+					</div> 
+					<div class="w-full"> 
+						<a href="https://themeforest.net/item/smarthr-tailwind-css-admin-dashboard-template/37897693" target="_blank" class="btn-buynow px-3 py-[6px] block bg-primary hover:bg-btnPrimary-hoverbgColor w-full">Buy Now</a> 
+					</div> 
+			</div> 
+		</div>
+	<!-- jQuery -->
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<script src="js/alpine.min.js" defer></script>
+
+	<!-- Custom JS -->
+	<script src="js/app.js"></script>
+
+</body>
+
+</html>

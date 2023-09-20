@@ -1,0 +1,131 @@
+<!-- jQuery -->
+<script src="assets/js/jquery-3.6.3.min.js"></script>
+
+<!-- Bootstrap Core JS -->
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+
+<!-- Slimscroll JS -->
+<script src="assets/js/jquery.slimscroll.min.js"></script>
+
+<!-- Chart JS -->
+<script src="assets/plugins/morris/morris.min.js"></script>
+<script src="assets/plugins/raphael/raphael.min.js"></script>
+<script src="assets/js/chart.js"></script>
+<script src="assets/js/greedynav.js"></script>
+<script src="assets/js/Chart.min.js"></script>
+<script src="assets/js/line-chart.js"></script>
+
+<!-- Theme Settings JS -->
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/theme-settings.js"></script>
+<script src="assets/js/greedynav.js"></script>
+
+<!-- Select2 JS -->
+<script src="assets/js/select2.min.js"></script>
+
+<!-- Datatable JS -->
+<script src="assets/js/jquery.dataTables.min.js"></script>
+<script src="assets/js/dataTables.bootstrap4.min.js"></script>
+
+<!-- Datetimepicker JS -->
+<script src="assets/js/moment.min.js"></script>
+<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+
+<!-- Dropfiles JS -->
+<script src="assets/js/dropfiles.js"></script>
+
+<!-- Ck Editor JS -->
+<script src="assets/js/ckeditor.js"></script>
+
+<!-- Calendar JS -->
+<script src="assets/js/jquery-ui.min.js"></script>
+<script src="assets/js/fullcalendar.min.js"></script>
+<script src="assets/js/jquery.fullcalendar.js"></script>
+
+<!-- Task JS -->
+<script src="assets/js/task.js"></script>
+
+<!-- Daterangepikcer JS -->
+<script src="assets/plugins/daterangepicker/daterangepicker.js"></script>
+
+<!-- Tagsinput JS -->
+<script src="assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+<script src="assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+
+<!-- Mask JS -->
+<script src="assets/js/jquery.maskedinput.min.js"></script>
+<script src="assets/js/mask.js"></script>
+
+<!-- Form Validation JS -->
+<script src="assets/js/form-validation.js"></script>
+
+<!-- Multiselect JS -->
+<script src="assets/js/multiselect.min.js"></script>
+
+<!-- Add Table Row JS -->
+<script>
+  $(function () {
+    $(document).on("click", ".btn-add-row", function () {
+      var id = $(this).closest("table.table-review").attr("id"); // Id of particular table
+      console.log(id);
+      var div = $("<tr />");
+      div.html(GetDynamicTextBox(id));
+      $("#" + id + "_tbody").append(div);
+    });
+    $(document).on("click", "#comments_remove", function () {
+      $(this)
+        .closest("tr")
+        .prev()
+        .find("td:last-child")
+        .html(
+          '<button type="button" class="btn btn-danger" id="comments_remove"><i class="fa-regular fa-trash-can"></i></button>'
+        );
+      $(this).closest("tr").remove();
+    });
+    function GetDynamicTextBox(table_id) {
+      $("#comments_remove").remove();
+      var rowsLength =
+        document
+          .getElementById(table_id)
+          .getElementsByTagName("tbody")[0]
+          .getElementsByTagName("tr").length + 1;
+      return (
+        "<td>" +
+        rowsLength +
+        "</td>" +
+        '<td><input type="text" name = "DynamicTextBox" class="form-control" value = "" ></td>' +
+        '<td><input type="text" name = "DynamicTextBox" class="form-control" value = "" ></td>' +
+        '<td><input type="text" name = "DynamicTextBox" class="form-control" value = "" ></td>' +
+        '<td><button type="button" class="btn btn-danger" id="comments_remove"><i class="fa-regular fa-trash-can"></i></button></td>'
+      );
+    }
+  });
+</script>
+
+<!-- goal-tracking -->
+
+<script>
+  $(document).ready(function () {
+    // Read value on page load
+    $("#result b").html($("#customRange").val());
+
+    // Read value on change
+    $("#customRange").change(function () {
+      $("#result b").html($(this).val());
+    });
+  });
+</script>
+
+<!-- questions -->
+
+<script>
+  $(".next").click(function () {
+    var nextId = $(this).parents(".tab-pane").next().attr("id");
+    $('[href="#' + nextId + '"]').tab("show");
+    return false;
+  });
+
+  $(".first").click(function () {
+    $("#myWizard a:first").tab("show");
+  });
+</script>
